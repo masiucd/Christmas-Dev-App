@@ -16,4 +16,5 @@ let message = {
   part1 ++ " " ++ part2;
 };
 
+(a, b) => a + b;
 Js.log(message);
