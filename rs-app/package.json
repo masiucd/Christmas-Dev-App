@@ -1,5 +1,5 @@
 {
-  "name": "my-new-project",
+  "name": "rs-app",
   "version": "0.1.0",
   "scripts": {
     "build": "bsb -make-world",
@@ -13,10 +13,5 @@
   "license": "MIT",
   "devDependencies": {
     "bs-platform": "^5.0.6"
-  },
-  "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.0.0",
-    "@typescript-eslint/parser": "^2.0.0",
-    "global": "^4.4.0"
   }
 }
