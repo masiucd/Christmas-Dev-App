@@ -2,6 +2,7 @@
 'use strict';
 
 var Caml_int32 = require("bs-platform/lib/js/caml_int32.js");
+var Pervasives = require("bs-platform/lib/js/pervasives.js");
 
 var mult = Caml_int32.imul;
 
@@ -15,13 +16,76 @@ function addText(addition, text) {
   return text + addition;
 }
 
+var list = /* :: */[
+  1,
+  /* :: */[
+    2,
+    /* :: */[
+      3,
+      /* :: */[
+        4,
+        /* [] */0
+      ]
+    ]
+  ]
+];
+
+var addedList = /* :: */[
+  0,
+  list
+];
+
+var arr = /* array */[
+  "my ",
+  "little ",
+  "Ponny"
+];
+
+function getTransported(vehicle) {
+  if (typeof vehicle === "number") {
+    if (vehicle !== 0) {
+      return "I getting Sick";
+    } else {
+      return "Its fast and easy";
+    }
+  } else {
+    return "Travelling with a " + (vehicle[0] + " is nice!");
+  }
+}
+
+for(var x = 0; x <= 10; ++x){
+  Pervasives.print_int(x);
+  Pervasives.print_string(" ");
+}
+
 var print = "Mistrzem polski jest Legia";
 
-console.log(print);
+var dog = /* record */[
+  /* rank */1,
+  /* age */5,
+  /* art */"dog"
+];
+
+var strangerThings = "Hello\n    Master   *****\n   **** \\\n    How are you?...\n    ";
+
+var mustang = /* Car */["Mustang"];
+
+var start = 0;
+
+var ending = 10;
 
 exports.mult = mult;
 exports.times3 = times3;
 exports.num = num;
 exports.addText = addText;
 exports.print = print;
+exports.dog = dog;
+exports.list = list;
+exports.addedList = addedList;
+exports.arr = arr;
+exports.strangerThings = strangerThings;
+exports.mustang = mustang;
+exports.getTransported = getTransported;
+exports.start = start;
+exports.ending = ending;
 /*  Not a pure module */
