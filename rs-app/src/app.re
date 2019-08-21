@@ -60,5 +60,11 @@ let ending: int = 10;
 
 for (x in start to ending) {
   print_int(x);
-  print_string(" ");
+  print_string(" \n");
+};
+
+let teams = [|"manu", "legia", "juve", "porto"|];
+
+for (i in 0 to Array.length(teams) - 1) {
+  Js.log(teams[i]);
 };
