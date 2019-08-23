@@ -45,7 +45,7 @@ React.useEffect0(() => {
 
 switch users {
 | None => {
-   <div onClick={handleClick}>
+  <div onClick={handleClick}>
   {ReasonReact.string(message)}
 </div>
 }
