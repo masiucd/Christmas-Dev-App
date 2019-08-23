@@ -11,11 +11,15 @@ type action =
 
 [@react.component]
 let make = (~greeting) => {
-  let (state, dispatch) = React.useReducer((state, action) =>
-  switch (action) {
-  | Click => {...state, count: state.count + 1}
-  | Toggle => {...state, show: ! state.show}
-  }, {count: 0, show: true});
+  let (state, dispatch) =
+    React.useReducer(
+      (state, action) =>
+        switch (action) {
+        | Click => {...state, count: state.count + 1}
+        | Toggle => {...state, show: !state.show}
+        },
+      {count: 0, show: true},
+    );
 
   let message =
     "You've clicked this " ++ string_of_int(state.count) ++ " times(s)";

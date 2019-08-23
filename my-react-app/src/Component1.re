@@ -1,21 +1,65 @@
-/* You're familiar handleClick from ReactJS. This mandatorily takes the payload,
-   then the `self` record, which contains state (none here), `handle`, `reduce`
-   and other utilities */
-let handleClick = (_event) => Js.log("clicked!");
 
-/* `make` is the function that mandatorily takes `children` (if you want to use
-   `JSX). `message` is a named argument, which simulates ReactJS props. Usage:
+// type action =
+// | Tick;
 
-   `<Component1 message="hello" />`
+// type state = {
+// count: int,
+// };
 
-   Which desugars to
+// [@react.component]
+// let make = () => {
+// let  (state,dispatch) = React.useReducer((state,action) =>
+//   switch (action) {
+//   | Tick => {count: state.count + 1}
+//   },
+//   {count: 0}
+// )
 
-   `React.createElement(
-     Component1.make,
-     Component1.makeProps(~message="hello", ())
-   )` */
+// React.useEffect0(() => {
+//   let timerId = Js.Global.setInterval(() => dispatch(Tick),1000 );
+//   Some(() => Js.Global.clearInterval(timerId))
+// })
+//   <div>{ReasonReact.string(string_of_int(state.count))}</div>
+// }
+
+let handleClick = _event => Js.log("clicked!");
+
 [@react.component]
-let make = (~message) =>
+let make = (~message) => {
+  let (users, setUsers) =
+    React.useReducer(
+      (oldState, actionInTheNewState) => actionInTheNewState,
+      None,
+    );
+  ();
+
+
+React.useEffect0(() => {
+  // this data has a name and it is a string
+  let data: {. "name": string} = [%bs.raw "require('./data.json')"];
+  let name = data##name;
+  setUsers(Some(data));
+  //
+  None;
+});
+
+switch users {
+| None => {
+   <div onClick={handleClick}>
+  {ReasonReact.string(message)}
+</div>
+}
+| Some(users) => {
   <div onClick={handleClick}>
-    {ReasonReact.string(message)}
-  </div>;
+    {ReasonReact.string(users##name)}
+  </div>
+}
+};
+    <div>
+      {ReasonReact.string(message)}
+    </div>
+}
+
+
+
+
