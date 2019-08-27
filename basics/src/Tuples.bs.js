@@ -26,22 +26,55 @@ var moreNumsWithThePrevious = /* tuple */[
   numsAndFloats
 ];
 
-var johnSnow = /* tuple */[
-  "John",
-  "snow",
-  "Soldier"
-];
+function getFirst(param) {
+  return param[0];
+}
 
-console.log(johnSnow);
+function getSecond(param) {
+  return param[1];
+}
+
+function getCharachter(param) {
+  return param[0];
+}
+
+function getCharachte2(param) {
+  return param[0] + (" " + (param[1] + (" " + param[2])));
+}
 
 var nameAndBool = /* tuple */[
   "Tim",
   false
 ];
 
+var johnSnow = /* tuple */[
+  "John",
+  "snow",
+  "Soldier"
+];
+
+var num = 6;
+
+var x = 10;
+
+var myNums = /* tuple */[
+  24,
+  11
+];
+
+var c = 11;
+
 exports.fruitAndAnimal = fruitAndAnimal;
 exports.numsAndFloats = numsAndFloats;
 exports.moreNumsWithThePrevious = moreNumsWithThePrevious;
 exports.nameAndBool = nameAndBool;
 exports.johnSnow = johnSnow;
+exports.num = num;
+exports.x = x;
+exports.myNums = myNums;
+exports.c = c;
+exports.getFirst = getFirst;
+exports.getSecond = getSecond;
+exports.getCharachter = getCharachter;
+exports.getCharachte2 = getCharachte2;
 /*  Not a pure module */
