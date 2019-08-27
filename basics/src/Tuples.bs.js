@@ -38,9 +38,15 @@ function getCharachter(param) {
   return param[0];
 }
 
-function getCharachte2(param) {
+function getCharachter2(param) {
   return param[0] + (" " + (param[1] + (" " + param[2])));
 }
+
+getCharachter2(/* tuple */[
+      "Luke",
+      "skywalker",
+      "jedi"
+    ]);
 
 var nameAndBool = /* tuple */[
   "Tim",
@@ -76,5 +82,5 @@ exports.c = c;
 exports.getFirst = getFirst;
 exports.getSecond = getSecond;
 exports.getCharachter = getCharachter;
-exports.getCharachte2 = getCharachte2;
+exports.getCharachter2 = getCharachter2;
 /*  Not a pure module */

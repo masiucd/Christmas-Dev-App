@@ -31,6 +31,6 @@ getFirst((5,12));
 getSecond((5,12));
 
 let getCharachter = ((a,b,c)) => a;
-let getCharachte2 = ((a,b,c)) => a ++ " " ++ b ++ " " ++ c;
+let getCharachter2 = ((a,b,c)) => a ++ " " ++ b ++ " " ++ c;
  getCharachter(("Luke", "skywalker", "jedi"));
  getCharachter2(("Luke", "skywalker", "jedi"));
