@@ -17,8 +17,10 @@ toTeam(/* tuple */[
     ]);
 
 function getFirstName(mamal) {
-  return mamal[/* firstName */0];
+  return mamal[/* name */0];
 }
+
+console.log("leo");
 
 var legia = /* record */[
   /* name */"legia warszawa",
@@ -26,7 +28,21 @@ var legia = /* record */[
   /* awsome */true
 ];
 
+var aleks = /* record */[
+  /* name */"aleks",
+  /* age */34,
+  /* cool */true,
+  /* grade */3.3
+];
+
+var lion = /* record */[
+  /* name */"leo",
+  /* kind */"lion"
+];
+
 exports.legia = legia;
 exports.toTeam = toTeam;
+exports.aleks = aleks;
+exports.lion = lion;
 exports.getFirstName = getFirstName;
 /*  Not a pure module */

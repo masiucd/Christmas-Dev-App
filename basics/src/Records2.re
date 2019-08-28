@@ -24,8 +24,12 @@ type person = {
 };
 
 type animal = {
-  firstName: string,
+  name: string,
   kind: string,
 };
 
-let getFirstName = mamal => mamal.firstName;
+let aleks = {name: "aleks", age: 34, cool: true, grade: 3.3};
+let lion = {name: "leo", kind: "lion"};
+let getFirstName = mamal => mamal.name;
+
+Js.log(getFirstName(lion));
