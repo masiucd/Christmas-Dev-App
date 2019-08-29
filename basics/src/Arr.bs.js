@@ -2,6 +2,7 @@
 'use strict';
 
 var Caml_array = require("bs-platform/lib/js/caml_array.js");
+var Caml_builtin_exceptions = require("bs-platform/lib/js/caml_builtin_exceptions.js");
 
 var starWarsChars = /* array */[
   "Solo",
@@ -30,8 +31,72 @@ var getByIndex = Caml_array.caml_array_get;
 
 Caml_array.caml_array_get(doggies, 0);
 
+var fruits = /* array */[
+  "granny smith",
+  "yellow something",
+  "polish cherries"
+];
+
+if (fruits.length !== 3) {
+  throw [
+        Caml_builtin_exceptions.match_failure,
+        /* tuple */[
+          "Arr.re",
+          21,
+          4
+        ]
+      ];
+}
+
+var apple = fruits[0];
+
+var banana = fruits[1];
+
+var cherry = fruits[2];
+
+function getFruits(param) {
+  if (param.length !== 3) {
+    throw [
+          Caml_builtin_exceptions.match_failure,
+          /* tuple */[
+            "Arr.re",
+            27,
+            16
+          ]
+        ];
+  }
+  var a = param[0];
+  var b = param[1];
+  return /* array */[
+          a,
+          b
+        ];
+}
+
+getFruits(fruits);
+
+var myInts = /* array */[
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7
+];
+
+for(var i$1 = 0 ,i_finish$1 = myInts.length; i$1 <= i_finish$1; ++i$1){
+  console.log(Caml_array.caml_array_get(myInts, i$1));
+}
+
 exports.starWarsChars = starWarsChars;
 exports.doggies = doggies;
 exports.createArray = createArray;
 exports.getByIndex = getByIndex;
+exports.fruits = fruits;
+exports.apple = apple;
+exports.banana = banana;
+exports.cherry = cherry;
+exports.getFruits = getFruits;
+exports.myInts = myInts;
 /*  Not a pure module */
