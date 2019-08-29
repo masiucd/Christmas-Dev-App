@@ -15,3 +15,15 @@ for (i in 0 to Array.length(doggies)) {
 
 let getByIndex = (arr, index) => arr[index];
 getByIndex(doggies, 0);
+
+let fruits = [|"granny smith", "yellow something", "polish cherries"|];
+
+/* with fixed data this is okey  */
+let [|apple, banana, cherry|] = fruits;
+
+apple;
+banana;
+cherry;
+
+let getFruits = ([|a, b, c|]) => [|a, b|];
+getFruits(fruits);
