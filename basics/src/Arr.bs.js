@@ -42,7 +42,7 @@ if (fruits.length !== 3) {
         Caml_builtin_exceptions.match_failure,
         /* tuple */[
           "Arr.re",
-          21,
+          22,
           4
         ]
       ];
@@ -60,7 +60,7 @@ function getFruits(param) {
           Caml_builtin_exceptions.match_failure,
           /* tuple */[
             "Arr.re",
-            27,
+            28,
             16
           ]
         ];
