@@ -9,28 +9,25 @@ type person = (string, string, string);
 
 let johnSnow = ("John", "snow", "Soldier");
 
-
 let num = 6;
-// we ignore the value of 6
+/* // we ignore the value of 6 */
 let _ = 6;
 
+/* // to ignore the second value */
+let (x, _) = (10, 5);
 
-// to ignore the second value
-let (x,_) = (10,5);
+/* // Js.log(x) */
+let myNums = (24, 11);
 
-// Js.log(x)
-let myNums = (24,11);
+let (_, c) = myNums;
+/* // Js.log(c) */
 
-let (_, c) = myNums
-// Js.log(c)
+let getFirst = ((x, _)) => x;
+let getSecond = ((_, y)) => y;
+getFirst((5, 12));
+getSecond((5, 12));
 
-
-let getFirst = ((x,_)) => x;
-let getSecond= ((_,y)) => y;
-getFirst((5,12));
-getSecond((5,12));
-
-let getCharachter = ((a,b,c)) => a;
-let getCharachter2 = ((a,b,c)) => a ++ " " ++ b ++ " " ++ c;
- getCharachter(("Luke", "skywalker", "jedi"));
- getCharachter2(("Luke", "skywalker", "jedi"));
+let getCharachter = ((a, b, c)) => a;
+let getCharachter2 = ((a, b, c)) => a ++ " " ++ b ++ " " ++ c;
+getCharachter(("Luke", "skywalker", "jedi"));
+getCharachter2(("Luke", "skywalker", "jedi"));
