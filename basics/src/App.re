@@ -54,6 +54,15 @@ let zzz = (3, 9);
 
 let resOfZzz =
   switch (zzz) {
-  | (x, y) when x < y => x
-  | (_, y) => y
+  | (x, y) when x < y => x * y
+  | (_, y) => y / 3
   };
+
+let myIfElese =
+  if (true) {
+    print_string("\nHello\n");
+  } else {
+    print_int(4554);
+  };
+
+Js.log(myIfElese);
