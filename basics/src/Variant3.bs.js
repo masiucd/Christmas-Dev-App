@@ -14,5 +14,31 @@ function isLarger(animal1, animal2) {
   }
 }
 
+var quote = "The force is with you!";
+
+var starwars;
+
+switch (quote) {
+  case "I am Your father" : 
+      starwars = "Nooooooooooo";
+      break;
+  case "I love candy" : 
+      starwars = "No match";
+      break;
+  case "The force is with you!" : 
+      starwars = "is match";
+      break;
+  default:
+    starwars = "";
+}
+
+var math = "correct";
+
+var fivePlusFive = 10;
+
 exports.isLarger = isLarger;
-/* No side effect */
+exports.quote = quote;
+exports.starwars = starwars;
+exports.fivePlusFive = fivePlusFive;
+exports.math = math;
+/* starwars Not a pure module */
