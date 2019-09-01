@@ -65,4 +65,19 @@ let myIfElese =
     print_int(4554);
   };
 
-Js.log(myIfElese);
+"abc".[1];
+/* unit type */
+();
+
+/* char */
+'s';
+let num = 3;
+string_of_int(num);
+
+let check = [1, 2, 3, 4, 5];
+let check2 = [1, 2, 3, 4, 5];
+check == check2;
+check === check2;
+
+let z = check;
+z === check;
