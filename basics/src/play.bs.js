@@ -19,12 +19,34 @@ Pervasives.print_string("\n");
 
 Pervasives.print_string("Hello");
 
-console.log(123);
-
 Pervasives.print_int(123);
 
-var b = 123;
+Pervasives.print_string("mama");
+
+console.log(10);
+
+var t = /* tuple */[
+  56,
+  43,
+  true,
+  "hi"
+];
+
+var d = "hi";
+
+var a = 56;
+
+var b = 43;
+
+var c = true;
+
+var sum = 10;
 
 exports.x = x;
+exports.t = t;
+exports.d = d;
+exports.a = a;
 exports.b = b;
+exports.c = c;
+exports.sum = sum;
 /*  Not a pure module */
