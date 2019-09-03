@@ -40,5 +40,19 @@ aaa(~x=?Some(5), ~y=?None, ());
 
 let add = (x, y) => x + y;
 let plus5 = add(5);
-
 plus5(5);
+
+let nums = [1, 2, 3, 4, 5];
+let plus2 = x => add(2, x);
+List.map(plus2, nums);
+List.map(add(2), nums);
+
+let names = ["aleks", "boris", "stina"];
+let newName = (x: string, y: string) => x ++ y;
+let addName = newName("Ale");
+addName("sss");
+
+List.map(newName("first name :"), names);
+
+let summing = (x, y) => x + y;
+let curry = (f: (('a, 'b)) => 'c, x, y) => f((x, y));
