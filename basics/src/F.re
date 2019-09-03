@@ -28,3 +28,17 @@ multiply(~x=?Some(14), ~y=?None, ());
 let square = (~x=?, ()) => multiply(~x?, ~y=?x, ());
 
 square(~x=?Some(10), ());
+
+let sum = (~x: option(int)=?, ~y: option(int)=?, ()) => x;
+sum(~x=3, ());
+sum(~x=?Some(2), ~y=?Some(6), ());
+
+let aaa = (~x=6, ~y=3, ()) => x + y;
+aaa(~x=?Some(5), ~y=?None, ());
+
+/* Why is partial application useful?*/
+
+let add = (x, y) => x + y;
+let plus5 = add(5);
+
+plus5(5);
