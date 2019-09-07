@@ -25,11 +25,11 @@ apple;
 banana;
 cherry;
 
-let getFruits = ([|a, b, c|]) => [|a, b|];
-getFruits(fruits);
+/* let getFruits = ([|a, b, c|]) => [|a, b|];
+   getFruits(fruits);
 
-let myInts = [|1, 2, 3, 4, 5, 6, 7|];
+   let myInts = [|1, 2, 3, 4, 5, 6, 7|];
 
-for (i in 0 to Array.length(myInts)) {
-  Js.log(myInts[i]);
-};
+   for (i in 0 to Array.length(myInts)) {
+     Js.log(myInts[i]);
+   }; */
