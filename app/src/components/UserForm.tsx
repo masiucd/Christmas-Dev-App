@@ -11,6 +11,9 @@ export default function UserForm(props: IUserFormProps) {
       <div className='form-grop'>
         <input type='text' />
       </div>
+      <div className='form-grop'>
+        <input type='text' />
+      </div>
       <button type='submit'></button>
     </form>
   );
