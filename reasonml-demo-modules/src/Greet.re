@@ -1,1 +1,0 @@
-let greet = (a: string, b: string) => a ++ b;
