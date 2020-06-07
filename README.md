@@ -8,7 +8,7 @@ Just for practice and to have a simple boilerplate of how to write test for your
 
 ### Tools
 
-- Jest
-- React
-- React testing library
-- Typescript
+- Jest [Jest](https://jestjs.io/docs/en/mock-functions.html)
+- React [React](https://reactjs.org/docs/testing-recipes.html)
+- React testing library [React testing](https://testing-library.com/docs/react-testing-library/intro)
+- Typescript [Ts](https://www.typescriptlang.org/)
