@@ -7,7 +7,7 @@ afterEach(cleanup);
 
 describe('testing newUser component', () => {
   test('<NewUser/>', () => {
-    const { debug, container, getByTestId, queryByTestId } = render(
+    const { debug, container, getByTestId, queryByTestId, getByText } = render(
       <NewUser />,
     );
 
@@ -19,6 +19,8 @@ describe('testing newUser component', () => {
     expect(userForm).toBeTruthy();
 
     expect(container.firstChild).toMatchSnapshot();
+
+    fireEvent.submit(getByText('Submit'));
     // debug();
   });
 });

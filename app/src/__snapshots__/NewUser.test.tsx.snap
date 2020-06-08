@@ -13,29 +13,24 @@ exports[`testing newUser component <NewUser/> 1`] = `
     data-testid="user-form"
   >
     <div
-      class="form-grop"
+      class="form-group"
     >
-      <input
-        type="text"
-      />
-    </div>
-    <div
-      class="form-grop"
-    >
-      <input
-        type="text"
-      />
-    </div>
-    <div
-      class="form-grop"
-    >
-      <input
-        type="text"
-      />
+      <label
+        for="text"
+      >
+        Text
+        <input
+          name="text"
+          type="text"
+          value=""
+        />
+      </label>
     </div>
     <button
       type="submit"
-    />
+    >
+      Submit
+    </button>
   </form>
 </div>
 `;

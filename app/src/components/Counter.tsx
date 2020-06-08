@@ -11,7 +11,13 @@ const Counter = (props: Props) => {
         className='btn'
         data-testid='counter-btn'
         onClick={() => setCount((prev) => prev + 1)}>
-        counter
+        increase
+      </button>
+      <button
+        className='btn'
+        data-testid='counter-btn-minus'
+        onClick={() => setCount((prev) => prev - 1)}>
+        decrease
       </button>
       <button
         data-testid='reset-btn'
