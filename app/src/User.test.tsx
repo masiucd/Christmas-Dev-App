@@ -1,6 +1,8 @@
 import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import User from './components/User';
+import { MemoryRouter } from 'react-router-dom';
+
 interface Address {
   street: string;
   suite: string;
@@ -73,8 +75,18 @@ describe('testing User component', () => {
 
   test('<User /> with user', () => {
     // const { debug } = render(<User />);
-    const { getByText } = render(<User user={user} />);
+    const { getByText, getByTestId } = render(
+      <MemoryRouter>
+        <User user={user} />
+      </MemoryRouter>,
+    );
     expect(getByText('Leanne Graham')).toBeInTheDocument();
     expect(console.error).not.toBeCalled();
+    expect(getByTestId('user-link').getAttribute('href')).toBe(
+      `/user/${user.id}`,
+    );
+    expect(getByTestId('user-img').getAttribute('src')).toBe(
+      'https://images.pexels.com/photos/4328961/pexels-photo-4328961.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    );
   });
 });
