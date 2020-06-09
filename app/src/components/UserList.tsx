@@ -1,5 +1,6 @@
 import * as React from 'react';
 import User from './User';
+import Title from './Title';
 
 interface Props {}
 
@@ -15,9 +16,9 @@ const UserList: React.FC<Props> = () => {
     getUsers();
   }, []);
 
-  console.log(users);
   return (
     <div>
+      <Title mainTitle='Users List' subTitle='something nice' />
       {users.length > 0 &&
         users.map((user) => <User key={user.id} user={user} />)}
     </div>
