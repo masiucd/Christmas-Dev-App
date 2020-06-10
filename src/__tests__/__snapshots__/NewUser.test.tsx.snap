@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing newUser component <NewUser/> 1`] = `
+<div
+  data-testid="newUser"
+>
+  <h1
+    data-testid="page-title"
+  >
+    New User
+  </h1>
+  <form
+    data-testid="user-form"
+  >
+    <div
+      class="form-group"
+    >
+      <label
+        for="text"
+      >
+        Text
+        <input
+          name="text"
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;

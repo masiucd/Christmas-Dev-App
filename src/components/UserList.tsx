@@ -2,6 +2,7 @@ import * as React from 'react';
 import User from './User';
 import Title from './Title';
 import Timer from './Timer';
+import HiddenData from './HiddenData';
 
 interface Props {}
 
@@ -21,8 +22,10 @@ const UserList: React.FC<Props> = () => {
     <div>
       <Title mainTitle='Users List' subTitle='something nice' />
       <Timer />
-      {users.length > 0 &&
-        users.map((user) => <User key={user.id} user={user} />)}
+      <HiddenData>
+        {users.length > 0 &&
+          users.map((user) => <User key={user.id} user={user} />)}
+      </HiddenData>
     </div>
   );
 };

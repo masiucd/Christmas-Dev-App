@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
-import User from './components/User';
+import User from '../components/User';
 import { MemoryRouter } from 'react-router-dom';
 
 interface Address {

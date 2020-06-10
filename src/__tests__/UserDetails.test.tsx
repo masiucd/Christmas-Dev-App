@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import UserDetails from './components/UserDetails';
+import UserDetails from '../components/UserDetails';
 
 global.fetch = require('jest-fetch-mock');
 

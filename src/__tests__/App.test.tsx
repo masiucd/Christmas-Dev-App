@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 
-import Counter from './components/Counter';
+import Counter from '../components/Counter';
 
 afterEach(cleanup);
 test('<Counter />', () => {

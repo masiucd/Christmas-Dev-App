@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
-import NewUser from './components/NewUser';
+import NewUser from '../components/NewUser';
 
 //  clean the DOM after each test!
 afterEach(cleanup);
