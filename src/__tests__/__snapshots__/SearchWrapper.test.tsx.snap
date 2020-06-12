@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Wrapper <SearchWrapper /> 1`] = `
+<div>
+  <div>
+    <label
+      for="search"
+    >
+      Search:
+    </label>
+    <input
+      id="search"
+      placeholder="search"
+      type="text"
+      value=""
+    />
+  </div>
+  <h3>
+    Searching for 
+    ...
+  </h3>
+</div>
+`;
+
+exports[`Search Wrapper <SearchWrapper/> 1`] = `
+<div>
+  <div>
+    <label
+      for="search"
+    >
+      Search:
+    </label>
+    <input
+      id="search"
+      placeholder="search"
+      type="text"
+      value=""
+    />
+  </div>
+  <h3>
+    Searching for 
+    ...
+  </h3>
+</div>
+`;
