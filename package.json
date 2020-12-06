@@ -16,13 +16,13 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn run type-check"
+      "pre-push": "npm run run type-check"
     }
   },
   "lint-staged": {
     "*.@(ts|tsx)": [
-      "yarn lint",
-      "yarn format"
+      "npm run lint",
+      "npm run format"
     ]
   },
   "dependencies": {
@@ -46,6 +46,7 @@
     "babel-plugin-styled-components": "^1.12.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-better-styled-components": "^1.1.2",
     "eslint-plugin-react": "^7.19.0",
     "husky": "^4.2.3",
     "identity-obj-proxy": "^3.0.0",

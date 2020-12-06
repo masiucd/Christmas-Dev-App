@@ -1,30 +1,30 @@
-import React from 'react'
-import { ThemeProvider } from 'styled-components'
-import styled from 'styled-components'
+import React from "react"
+import { ThemeProvider } from "styled-components"
+import styled from "styled-components"
 
 const themes: any = {
   light: {
     colors: {
-      primary: 'deeppink',
-      background: 'white',
+      primary: "deeppink",
+      background: "white",
     },
   },
   dark: {
     colors: {
-      primary: 'lightpink',
-      background: 'black',
+      primary: "lightpink",
+      background: "black",
     },
   },
 }
 
 const PrimaryText = styled.div(({ theme }) => ({
-  padding: 20,
   color: theme.colors.primary,
+  padding: 20,
   backgroundColor: theme.colors.background,
 }))
 
 function ThemeToggler({ theme, onClick }: any) {
-  const nextTheme = theme === 'light' ? 'dark' : 'light'
+  const nextTheme = theme === "light" ? "dark" : "light"
   return (
     <button onClick={() => onClick(nextTheme)}>
       Change to {nextTheme} mode
@@ -32,8 +32,8 @@ function ThemeToggler({ theme, onClick }: any) {
   )
 }
 
-const Layout: React.FC = ({ children }) => {
-  const [theme, setTheme] = React.useState('light')
+const Layout: React.FC = () => {
+  const [theme, setTheme] = React.useState("light")
 
   return (
     <ThemeProvider theme={themes[theme]}>
