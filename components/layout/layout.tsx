@@ -1,45 +1,33 @@
 import React from "react"
-import { ThemeProvider } from "styled-components"
 import styled from "styled-components"
+import GlobalStyles from "./global-styles"
+import Nav from "./nav"
+type Theme = "dark" | "light"
 
-const themes: any = {
-  light: {
-    colors: {
-      primary: "deeppink",
-      background: "white",
-    },
-  },
-  dark: {
-    colors: {
-      primary: "lightpink",
-      background: "black",
-    },
-  },
-}
+const Main = styled.main``
 
-const PrimaryText = styled.div(({ theme }) => ({
-  color: theme.colors.primary,
-  padding: 20,
-  backgroundColor: theme.colors.background,
-}))
-
-function ThemeToggler({ theme, onClick }: any) {
+const Layout: React.FC = ({ children }) => {
+  const [theme, setTheme] = React.useState<Theme>("light")
   const nextTheme = theme === "light" ? "dark" : "light"
-  return (
-    <button onClick={() => onClick(nextTheme)}>
-      Change to {nextTheme} mode
-    </button>
-  )
-}
 
-const Layout: React.FC = () => {
-  const [theme, setTheme] = React.useState("light")
+  React.useEffect(() => {
+    document.body.dataset.theme = theme
+  }, [theme])
 
   return (
-    <ThemeProvider theme={themes[theme]}>
-      <PrimaryText>This text is the primary color</PrimaryText>
-      <ThemeToggler theme={theme} onClick={(t: any) => setTheme(t)} />
-    </ThemeProvider>
+    <>
+      <GlobalStyles />
+      <Nav className="main-nav" />
+      <button onClick={() => setTheme(nextTheme)}>Toggle Theme</button>
+      <Main>{children}</Main>
+    </>
   )
 }
 export default Layout
+
+{
+  /* <ThemeProvider theme={themes[theme]}>
+      <PrimaryText>This text is the primary color</PrimaryText>
+      <ThemeToggler theme={theme} onClick={(t: any) => setTheme(t)} />
+    </ThemeProvider> */
+}

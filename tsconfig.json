@@ -18,8 +18,9 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@components/*":["components/*"],
-      "@hooks/*":["hooks/*"]
+      "@components/*": ["components/*"],
+      "@hooks/*": ["hooks/*"],
+      "@styles/*": ["styles/*"]
     }
   },
   "exclude": ["node_modules", ".next", "out"],
