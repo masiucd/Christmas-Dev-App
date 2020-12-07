@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import GlobalStyles from "./global-styles"
+import GlobalStyles from "../../styles/global-styles"
 import Nav from "./nav"
 type Theme = "dark" | "light"
 

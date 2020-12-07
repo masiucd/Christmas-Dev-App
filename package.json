@@ -11,18 +11,19 @@
     "format": "prettier --write .",
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "test": "jest",
+    "test-dev": "jest --watch",
     "test-all": "yarn lint && yarn type-check && yarn test"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm run run type-check"
+      "pre-push": "yarn run type-check"
     }
   },
   "lint-staged": {
     "*.@(ts|tsx)": [
-      "npm run lint",
-      "npm run format"
+      "yarn lint",
+      "yarn format"
     ]
   },
   "dependencies": {
@@ -35,8 +36,9 @@
     "swr": "^0.3.9"
   },
   "devDependencies": {
-    "@testing-library/react": "^10.0.1",
-    "@types/jest": "^25.1.4",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@types/jest": "^26.0.16",
     "@types/node": "^13.9.5",
     "@types/react": "^16.9.27",
     "@types/styled-components": "^5.1.4",
@@ -46,11 +48,12 @@
     "babel-plugin-styled-components": "^1.12.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
+    "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-better-styled-components": "^1.1.2",
     "eslint-plugin-react": "^7.19.0",
     "husky": "^4.2.3",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^25.2.3",
+    "jest": "^26.6.3",
     "jest-watch-typeahead": "^0.5.0",
     "lint-staged": "^10.0.10",
     "prettier": "^2.0.2",
