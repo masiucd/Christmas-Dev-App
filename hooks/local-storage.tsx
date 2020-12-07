@@ -1,7 +1,8 @@
-// import { useState } from "react"
+import { useState } from "react"
 
-// const useLocalStorage = () => {
-//   const [state, setState] = useState(initialState)
-// }
+const useLocalStorage = (initialState = "") => {
+  const [state, setState] = useState(initialState)
+  return { state, setState }
+}
 
-// export { useLocalStorage }
+export { useLocalStorage }

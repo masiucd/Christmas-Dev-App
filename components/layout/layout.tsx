@@ -17,17 +17,10 @@ const Layout: React.FC = ({ children }) => {
   return (
     <>
       <GlobalStyles />
-      <Nav className="main-nav" />
+      <Nav className="layout-main-nav" />
       <button onClick={() => setTheme(nextTheme)}>Toggle Theme</button>
       <Main>{children}</Main>
     </>
   )
 }
 export default Layout
-
-{
-  /* <ThemeProvider theme={themes[theme]}>
-      <PrimaryText>This text is the primary color</PrimaryText>
-      <ThemeToggler theme={theme} onClick={(t: any) => setTheme(t)} />
-    </ThemeProvider> */
-}

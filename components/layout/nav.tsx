@@ -3,6 +3,7 @@ import styled from "styled-components"
 import NavIcon from "./nav-icon"
 import NavList from "./nav-list"
 import { useToggle } from "@hooks/toggle"
+import MobileList from "./mobile-list"
 
 interface NavProps {
   className: string
@@ -14,17 +15,18 @@ const Nav: React.FC<NavProps> = ({ className }) => {
     <nav className={className} data-testid="layout-main-nav">
       <h3>Logo goes here</h3>
       <NavIcon on={iconHasBeenClicked} toggle={toggleIconHasBeenClicked} />
-      <NavList className="main-nav-list" />
+      <NavList className="layout-main-nav-list" />
+      <MobileList className="layout-mobile-list" on={iconHasBeenClicked} />
     </nav>
   )
 }
 export default styled(Nav)`
   align-items: center;
   background-color: var(--background);
-  border: 2px solid red;
   box-shadow: var(--shadowMd);
   color: var(--textColor);
   display: flex;
   justify-content: space-between;
   padding: 1em;
+  position: relative;
 `

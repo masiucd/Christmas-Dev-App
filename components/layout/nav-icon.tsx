@@ -13,6 +13,7 @@ const StyledIcon = styled.div<StyledIconProps>`
   position: relative;
   transition: 300ms ease-in-out;
   width: 52px;
+  z-index: 2;
   span {
     display: block;
     &:nth-child(1) {
