@@ -14,18 +14,7 @@
     "test-dev": "jest --watch",
     "test-all": "yarn lint && yarn type-check && yarn test"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn run type-check"
-    }
-  },
-  "lint-staged": {
-    "*.@(ts|tsx)": [
-      "yarn lint",
-      "yarn format"
-    ]
-  },
+
   "dependencies": {
     "axios": "^0.21.0",
     "framer-motion": "^2.9.5",
