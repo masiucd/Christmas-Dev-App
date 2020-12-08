@@ -36,7 +36,6 @@ export default class MyDocument extends Document<Record<string, any>> {
             href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:ital,wght@0,400;0,500;1,400&display=swap"
             rel="stylesheet"
           />
-          <title>santa&quot;s calender</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <body>

@@ -69,6 +69,7 @@ const GlobalStyles = createGlobalStyle`
     /* positioning */
     --containerPadding: 2.5%;
     --headerHeight: 10rem;
+    --max-width: 970px;
 
     /* Utils */
     --border-radius: 4px;

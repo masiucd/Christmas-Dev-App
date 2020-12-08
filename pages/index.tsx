@@ -8,7 +8,7 @@ export const Home = (): JSX.Element => (
   <>
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>santa&quot;s calender</title>
       </Head>
       <Title />
     </div>
