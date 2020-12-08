@@ -105,7 +105,7 @@ const GlobalStyles = createGlobalStyle`
   body[data-theme='light'] {
     --textColor: var(--black);
     --background: var(--white);
-    --lineColor: var(--dark2);
+    --lineColor: var(--greyish);
 }
 
   body[data-theme='dark'] {

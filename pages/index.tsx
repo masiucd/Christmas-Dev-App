@@ -1,4 +1,3 @@
-import Layout from "@components/layout/layout"
 import Title from "@components/title"
 import Head from "next/head"
 import styled from "styled-components"
@@ -6,11 +5,10 @@ import styled from "styled-components"
 const Div = styled.div``
 
 export const Home = (): JSX.Element => (
-  <Layout>
+  <>
     <div className="container">
       <Head>
         <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Title />
     </div>
@@ -23,7 +21,7 @@ export const Home = (): JSX.Element => (
         illum tempora.
       </p>
     </Div>
-  </Layout>
+  </>
 )
 
 export default Home

@@ -12,8 +12,8 @@ interface MobileListProps {
 
 const MobileList: React.FC<MobileListProps> = ({ className, on }) => {
   const variants = {
-    open: { opacity: 1, y: 0, "z-index": 1 },
-    closed: { opacity: 0, y: "-100%", "z-index": -1 },
+    open: { opacity: 1, y: 0 },
+    closed: { opacity: 0, y: "-100%" },
   }
   return (
     <motion.section
@@ -37,10 +37,18 @@ export default styled(MobileList)`
   color: var(--background);
   height: auto;
   left: 0;
+  padding: 1rem 0;
   position: absolute;
   top: 100%;
   width: 100%;
   @media ${above.tabletL} {
     display: none;
+  }
+  a {
+    display: inline-block;
+    font-size: 1rem;
+    &:hover {
+      margin-left: 1rem;
+    }
   }
 `

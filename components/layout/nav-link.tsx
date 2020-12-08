@@ -10,7 +10,7 @@ interface NavLinkProp {
 const LinkItem = styled.li`
   a {
     display: block;
-    font-size: 1.1em;
+    font-size: 0.85em;
     margin-left: 0.2em;
     padding: 0.2em;
     position: relative;
