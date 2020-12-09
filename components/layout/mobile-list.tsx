@@ -37,7 +37,7 @@ export default styled(MobileList)`
   color: var(--background);
   height: auto;
   left: 0;
-  padding: 1rem 0;
+  padding: 2rem 0;
   position: absolute;
   top: 100%;
   width: 100%;
@@ -47,6 +47,7 @@ export default styled(MobileList)`
   a {
     display: inline-block;
     font-size: 1rem;
+    padding: 0.5rem 0;
     &:hover {
       margin-left: 1rem;
     }

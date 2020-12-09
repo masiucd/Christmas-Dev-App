@@ -1,4 +1,3 @@
-import { Head } from "next/document"
 import React from "react"
 import styled from "styled-components"
 import GlobalStyles from "../../styles/global-styles"
@@ -7,6 +6,8 @@ import Nav from "./nav"
 type Theme = "dark" | "light"
 
 const Main = styled.main`
+  /* TODO Delete */
+  border: 2px solid red;
   margin: 0 auto;
   max-width: var(--max-width);
 `
@@ -26,7 +27,6 @@ const Layout: React.FC = ({ children }) => {
   return (
     <>
       <GlobalStyles />
-
       <Nav className="layout-main-nav" handleTheme={handleTheme} theme={theme} />
       <Main>{children}</Main>
     </>
