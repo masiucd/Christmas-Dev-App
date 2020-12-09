@@ -6,8 +6,6 @@ import Nav from "./nav"
 type Theme = "dark" | "light"
 
 const Main = styled.main`
-  /* TODO Delete */
-  border: 2px solid red;
   margin: 0 auto;
   max-width: var(--max-width);
 `

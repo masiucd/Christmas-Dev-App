@@ -1,11 +1,39 @@
-import React from "react"
+import { motion } from "framer-motion"
+import styled, { FlattenSimpleInterpolation } from "styled-components"
+interface TitleProps {
+  mainTitle: string
+  subTitle?: string
+  className: string
+  styles?: FlattenSimpleInterpolation
+}
 
-const Title = () => {
+const Title: React.FC<TitleProps> = ({ mainTitle, subTitle, className }) => {
   return (
-    <div>
-      <h1>Title</h1>
-    </div>
+    <motion.section
+      className={className}
+      initial={{ opacity: 0, y: "-100%" }}
+      animate={{ opacity: 1, y: 0, transition: { delay: 0.2 } }}
+    >
+      <h1>{mainTitle}</h1>
+      {subTitle && <h3>{subTitle}</h3>}
+    </motion.section>
   )
 }
 
-export default Title
+export default styled(Title)`
+  border: 2px solid red;
+  font-size: 10px;
+  ${({ styles }) => (styles ? styles : null)};
+  padding: 1rem;
+  text-align: center;
+  h1,
+  h3 {
+    color: var(--textColor);
+  }
+  h1 {
+    font-size: var(--h1);
+  }
+  h3 {
+    font-size: var(--h3);
+  }
+`

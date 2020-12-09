@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { above } from "@styles/media-query"
+import { above, below } from "@styles/media-query"
 import { navListData } from "data/initial-data"
 import NavLink from "./nav-link"
 
@@ -18,6 +18,9 @@ const NavList: React.FC<NavListProps> = ({ className }) => {
   )
 }
 export default styled(NavList)`
+  @media ${below.mobileS} {
+    display: none;
+  }
   @media ${above.mobileS} {
     display: none;
   }
