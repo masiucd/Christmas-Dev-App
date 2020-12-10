@@ -1,3 +1,4 @@
+import Link from "next/link"
 import React from "react"
 import styled from "styled-components"
 
@@ -10,7 +11,8 @@ interface StyledDayProps {
   currentDay: boolean
 }
 
-const StyledDay = styled.button<StyledDayProps>`
+const StyledDay = styled.a<StyledDayProps>`
+  --webkit-perspective: 800;
   background-color: ${({ currentDay }) =>
     currentDay ? "var(--danger);" : "var(--textColor);"};
   border: none;
@@ -18,12 +20,20 @@ const StyledDay = styled.button<StyledDayProps>`
   box-shadow: var(--shadow);
   color: ${({ currentDay }) => (currentDay ? "var(--black);" : "var(--background);")};
   cursor: pointer;
+  display: block;
   font-size: 10px;
   outline: none;
   padding: 2.45em 0.5em;
+  position: relative;
   transition: var(--main-trans);
+
   p {
+    align-items: center;
+    display: flex;
     font-size: 2em;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
   }
   &:active {
     box-shadow: var(--shadow2Xl);
@@ -40,9 +50,11 @@ const Day: React.FC<DayProps> = ({ dayIndex, dayDate }) => {
   const currentDay = dayIndex === Number(dayDate)
 
   return (
-    <StyledDay className={`day-${dayIndex}`} currentDay={currentDay}>
-      <p>{dayIndex}</p>
-    </StyledDay>
+    <Link href={`/day/${dayIndex}`}>
+      <StyledDay className={`day-${dayIndex}`} currentDay={currentDay}>
+        <p>{dayIndex}</p>
+      </StyledDay>
+    </Link>
   )
 }
 export default Day
