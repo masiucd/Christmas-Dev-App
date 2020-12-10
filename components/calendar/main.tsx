@@ -3,6 +3,10 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import Day from "./day"
 
+interface MainCalenderProps {
+  dayDate: string
+}
+
 const Grid = styled.section`
   display: grid;
   grid-gap: 20px;
@@ -40,11 +44,12 @@ const Grid = styled.section`
   }
 `
 
-const renderGridItem = (xs: number[]) => xs.map((x) => <Day key={x} day={x} />)
+const renderGridItem = (xs: number[]) => (dayDate: string) =>
+  xs.map((x) => <Day key={x} dayIndex={x} dayDate={dayDate} />)
 
-const MainCalender = () => {
+const MainCalender: React.FC<MainCalenderProps> = ({ dayDate }) => {
   const [days] = useState(Array.from({ length: 24 }, (_, i) => i + 1))
 
-  return <Grid>{renderGridItem(days)}</Grid>
+  return <Grid>{renderGridItem(days)(dayDate)}</Grid>
 }
 export default MainCalender

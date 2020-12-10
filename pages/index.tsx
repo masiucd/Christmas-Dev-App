@@ -16,7 +16,7 @@ export const Home = (): JSX.Element => {
         mainTitle="Chrismas Advent Calender"
         subTitle={`Today it's ${day} ${d}-${month} ${year}`}
       />
-      <MainCalender />
+      <MainCalender dayDate={d} />
     </>
   )
 }

@@ -21,7 +21,6 @@ const Title: React.FC<TitleProps> = ({ mainTitle, subTitle, className }) => {
 }
 
 export default styled(Title)`
-  border: 2px solid red;
   font-size: 10px;
   ${({ styles }) => (styles ? styles : null)};
   padding: 1rem;

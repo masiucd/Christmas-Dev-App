@@ -2,15 +2,21 @@ import React from "react"
 import styled from "styled-components"
 
 interface DayProps {
-  day: number
+  dayIndex: number
+  dayDate: string
 }
 
-const StyledDay = styled.button`
-  background-color: var(--textColor);
+interface StyledDayProps {
+  currentDay: boolean
+}
+
+const StyledDay = styled.button<StyledDayProps>`
+  background-color: ${({ currentDay }) =>
+    currentDay ? "var(--danger);" : "var(--textColor);"};
   border: none;
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
-  color: var(--background);
+  color: ${({ currentDay }) => (currentDay ? "var(--black);" : "var(--background);")};
   cursor: pointer;
   font-size: 10px;
   outline: none;
@@ -24,12 +30,18 @@ const StyledDay = styled.button`
     position: relative;
     top: 7px;
   }
+  &:hover {
+    box-shadow: var(--shadow2Xl);
+    transform: scale(1.055);
+  }
 `
 
-const Day: React.FC<DayProps> = ({ day }) => {
+const Day: React.FC<DayProps> = ({ dayIndex, dayDate }) => {
+  const currentDay = dayIndex === Number(dayDate)
+
   return (
-    <StyledDay className={`day-${day}`}>
-      <p>{day}</p>
+    <StyledDay className={`day-${dayIndex}`} currentDay={currentDay}>
+      <p>{dayIndex}</p>
     </StyledDay>
   )
 }
