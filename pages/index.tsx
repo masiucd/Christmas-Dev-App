@@ -1,10 +1,12 @@
 import Title from "@components/title"
 import Head from "next/head"
 import MainCalender from "@components/calendar/main"
+import { calculateDaysUntilXmas } from "utils/helpers"
 
 export const Home = (): JSX.Element => {
-  const date = new Date(Date.now())
-  const [day, month, d, year] = date.toString().split(" ")
+  const date = Date.now()
+  const dateString = new Date(date)
+  const [day, month, d, year] = dateString.toString().split(" ")
 
   return (
     <>
@@ -14,7 +16,7 @@ export const Home = (): JSX.Element => {
       <Title
         className="home-page-title"
         mainTitle="Chrismas Advent Calender"
-        subTitle={`Today it's ${day} ${d}-${month} ${year}`}
+        subTitle={`Today it's ${day} ${d}-${month} ${year}, ${calculateDaysUntilXmas()} days until christmas `}
       />
       <MainCalender dayDate={d} />
     </>

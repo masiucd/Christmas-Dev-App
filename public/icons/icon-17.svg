@@ -1,0 +1,24 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"  viewBox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve">
+<g>
+	<path fill="none" stroke="#FFC107" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M17,43c0,0,6-2,6-4h-9"/>
+	<path fill="none" stroke="#FFC107" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M15,41c0,0,6,0,8-2"/>
+	<path fill="none" stroke="#FFC107" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M30,43c0,0-6-2-6-4h9"/>
+	<path fill="none" stroke="#FFC107" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M32,41c0,0-6,0-8-2"/>
+</g>
+<path fill="#1A237E" d="M13,18c-2,5-8,9-8,9s1,2,5,2h3V18z"/>
+<path fill="#1A237E" d="M35,18c2,5,8,9,8,9s-1,2-5,2h-3V18z"/>
+<g>
+	<path fill="#303F9F" d="M34,14c0,5.523-4.477,10-10,10s-10-4.477-10-10c0-7,4.477-10,10-10S34,7,34,14z"/>
+	<circle fill="#303F9F" cx="24" cy="27" r="14"/>
+	<path fill="#303F9F" d="M10,27c0-6,4-10,4-13s20-3,20,0s4,7,4,13S10,33,10,27z"/>
+</g>
+<g>
+	<circle fill="#FFFFFF" cx="24" cy="27" r="10"/>
+	<path fill="#FFFFFF" d="M30,16.997c0,0,1-1.995,1-3.995c0-7-7-3-7-2.002c0-0.998-7-4.998-7,2.002c0,2,1,3.995,1,3.995&#10;&#9;&#9;C17,19,14,21.215,14,27h10h10C34,21.215,31,19,30,16.997z"/>
+</g>
+<g>
+	<circle fill="#263238" cx="21.5" cy="14.5" r="1.5"/>
+	<circle fill="#263238" cx="26.5" cy="14.5" r="1.5"/>
+</g>
+<path fill="#FFC107" d="M24.714,16.301L24.714,16.301C24.531,16.116,24.28,16,24,16s-0.531,0.116-0.713,0.301h-0.001&#10;&#9;C22.422,17,21.201,16.8,21.201,16.8S22.6,21,24,21s2.799-4.2,2.799-4.2S25.578,17,24.714,16.301z"/>
+</svg>

@@ -1,0 +1,23 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"  viewBox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve">
+<path fill="#FF3D00" d="M27.995,42.001c-2.005,0-4.021-0.666-5.694-2.034l-8-6C12.212,32.257,11,29.7,11,27.001V13h17v9.084&#10;&#9;l5.699,3.951c3.847,3.147,4.414,8.818,1.267,12.665C33.187,40.875,30.601,42.001,27.995,42.001z"/>
+<path fill="#DD2C00" d="M12,22c-0.34,0-0.672,0.028-1,0.069v4.932c0,2.699,1.212,5.256,3.301,6.966l2.857,2.143&#10;&#9;C18.895,34.643,20,32.451,20,30C20,25.582,16.418,22,12,22z"/>
+<g>
+	<rect x="10" y="6" fill="#CFD8DC" width="19" height="7"/>
+	<circle fill="#CFD8DC" cx="13.5" cy="6.5" r="1.5"/>
+	<circle fill="#CFD8DC" cx="10.5" cy="6.5" r="1.5"/>
+	<circle fill="#CFD8DC" cx="16.5" cy="6.5" r="1.5"/>
+	<circle fill="#CFD8DC" cx="19.5" cy="6.5" r="1.5"/>
+	<circle fill="#CFD8DC" cx="22.5" cy="6.5" r="1.5"/>
+	<circle fill="#CFD8DC" cx="13.5" cy="12.5" r="1.5"/>
+	<circle fill="#CFD8DC" cx="16.5" cy="12.5" r="1.5"/>
+	<circle fill="#CFD8DC" cx="19.5" cy="12.5" r="1.5"/>
+	<circle fill="#CFD8DC" cx="22.5" cy="12.5" r="1.5"/>
+	<circle fill="#CFD8DC" cx="25.5" cy="6.5" r="1.5"/>
+	<circle fill="#CFD8DC" cx="25.5" cy="12.5" r="1.5"/>
+	<circle fill="#CFD8DC" cx="28.5" cy="12.5" r="1.5"/>
+	<circle fill="#CFD8DC" cx="28.5" cy="9.5" r="1.5"/>
+	<circle fill="#CFD8DC" cx="28.5" cy="6.5" r="1.5"/>
+	<circle fill="#CFD8DC" cx="10.5" cy="9.5" r="1.5"/>
+	<circle fill="#CFD8DC" cx="10.5" cy="12.5" r="1.5"/>
+</g>
+</svg>

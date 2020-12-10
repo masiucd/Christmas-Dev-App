@@ -42,6 +42,16 @@ const Grid = styled.section`
       grid-row: 9/11;
     }
   }
+  @media ${below.mobileL} {
+    grid-template-columns: repeat(2, 1fr);
+    .day-1,
+    .day-15,
+    .day-19,
+    .day-5 {
+      grid-column: none;
+      grid-row: none;
+    }
+  }
 `
 
 const renderGridItem = (xs: number[]) => (dayDate: string) =>

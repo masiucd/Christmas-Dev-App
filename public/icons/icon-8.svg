@@ -1,0 +1,28 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"  viewBox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve">
+<polygon fill="#E89419" points="41,32 24,26 7,32 7,44 41,44 "/>
+<g>
+	<rect x="23" y="3" fill="#FFC107" width="2" height="10"/>
+	<rect x="21" y="5" fill="#FFC107" width="6" height="2"/>
+</g>
+<g>
+	<path fill="#FFB74D" d="M17,37.001c0-2.668-4-5-4-5s-4,2.332-4,5C9,39.667,9,44,9,44h8C17,44,17,39.667,17,37.001z"/>
+	<path fill="#FFB74D" d="M39,37.001c0-2.668-4-5-4-5s-4,2.332-4,5C31,39.667,31,44,31,44h8C39,44,39,39.667,39,37.001z"/>
+	<polygon fill="#FFB74D" points="29,44 19,44 19,24 24,19 29,24 &#9;"/>
+</g>
+<polygon fill="#E64A19" points="23,11 25,11 29,24 24,19 19,24 "/>
+<g>
+	<polygon fill="#BF360C" points="19,25.872 5.638,31.068 6.362,32.932 19,28.018 &#9;"/>
+	<polygon fill="#BF360C" points="29,25.872 29,28.018 41.638,32.932 42.362,31.068 &#9;"/>
+	<polyline fill="none" stroke="#BF360C" stroke-width="2" points="18,24 24,18 30,24 &#9;"/>
+</g>
+<g>
+	<circle fill="#805A26" cx="13" cy="35" r="1"/>
+	<path fill="#805A26" d="M12,39c0-1-1-2-1-2s-1,1-1,2s0,5,0,5h2C12,44,12,40,12,39z"/>
+	<path fill="#805A26" d="M16,39c0-1-1-2-1-2s-1,1-1,2s0,5,0,5h2C16,44,16,40,16,39z"/>
+	<circle fill="#805A26" cx="35" cy="35" r="1"/>
+	<path fill="#805A26" d="M34,39c0-1-1-2-1-2s-1,1-1,2s0,5,0,5h2C34,44,34,40,34,39z"/>
+	<path fill="#805A26" d="M38,39c0-1-1-2-1-2s-1,1-1,2s0,5,0,5h2C38,44,38,40,38,39z"/>
+	<circle fill="#805A26" cx="24" cy="25" r="2"/>
+	<path fill="#805A26" d="M27,39c0-2-3-4-3-4s-3,2-3,4s0,5,0,5h6C27,44,27,41,27,39z"/>
+</g>
+</svg>
