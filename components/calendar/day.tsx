@@ -22,6 +22,7 @@ const StyledDay = styled(motion.div)<StyledDayProps>`
   color: ${({ currentDay }) => (currentDay ? "var(--black);" : "var(--background);")};
   cursor: pointer;
   font-size: 10px;
+  min-height: 6rem;
   outline: none;
   padding: 2.45em 0.5em;
   position: relative;
@@ -73,7 +74,7 @@ const ImageWrapper = React.forwardRef<HTMLAnchorElement, ImageWrapperProps>(
 
 const Day: React.FC<DayProps> = ({ dayIndex, dayDate }) => {
   const currentDay = dayIndex === Number(dayDate)
-  const { state: isFlipped, toggle: toggleFlipped, setToTrue } = useToggle()
+  const { state: isFlipped, toggle: toggleFlipped } = useToggle()
   const x = useMotionValue(0)
   const xInput = [-100, 0, 100]
   const background = useTransform(x, xInput, [
