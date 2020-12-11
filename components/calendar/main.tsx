@@ -11,6 +11,7 @@ const Grid = styled.section`
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  margin: 3.575rem auto;
   @media ${above.tablet} {
     grid-template-columns: repeat(4, 1fr);
   }

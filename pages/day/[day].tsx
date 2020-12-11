@@ -6,7 +6,7 @@ interface DayPageProps {}
 const DayPage: React.FC<DayPageProps> = ({}) => {
   const { query } = useRouter()
 
-  console.log(query)
+  console.log("query", query)
 
   return <h1>Hello from day {query.day} page</h1>
 }
