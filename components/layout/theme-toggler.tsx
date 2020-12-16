@@ -27,9 +27,9 @@ const ThemeToggler: React.FC<ThemeTogglerProps> = ({ theme, handleTheme }) => {
   const handleIcon = (theme: "dark" | "light") => {
     switch (theme) {
       case "dark":
-        return <Image src="/sunny-day.svg" alt="sun-icon" width={30} height={30} />
+        return <Image src="/sunny-day.svg" alt="toggle-icon" width={30} height={30} />
       case "light":
-        return <Image src="/night.svg" alt="moon-icon" width={30} height={30} />
+        return <Image src="/night.svg" alt="toggle-icon" width={30} height={30} />
       default:
         return null
     }

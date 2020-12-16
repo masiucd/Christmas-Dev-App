@@ -1,9 +1,8 @@
-import { useToggle } from "@hooks/toggle"
-import { AnimatePresence, motion, useMotionValue, useTransform } from "framer-motion"
+import { motion } from "framer-motion"
 import Link from "next/link"
-import React from "react"
 import styled from "styled-components"
 import Image from "next/image"
+import { forwardRef } from "react"
 interface DayProps {
   dayIndex: number
   dayDate: string
@@ -20,28 +19,12 @@ const StyledDay = styled(motion.div)<StyledDayProps>`
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   color: ${({ currentDay }) => (currentDay ? "var(--black);" : "var(--background);")};
-  cursor: pointer;
   font-size: 10px;
   min-height: 6rem;
   outline: none;
   padding: 2.45em 0.5em;
-  position: relative;
-  position: relative;
   transition: var(--main-trans);
-  section {
-    display: flex;
-    font-size: 2em;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    a {
-      z-index: 1000;
-      display: block;
-      position: relative;
-    }
-  }
   .front {
     background-color: ${({ currentDay }) =>
       currentDay ? "var(--danger);" : "var(--textColor);"};
@@ -54,7 +37,34 @@ const StyledDay = styled(motion.div)<StyledDayProps>`
   }
   &:hover {
     box-shadow: var(--shadow2Xl);
-    transform: scale(1.055);
+  }
+  .card {
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    width: 100%;
+  }
+
+  .face {
+    backface-visibility: hidden;
+    display: grid;
+    font-size: 1rem;
+    height: 100%;
+    place-items: center;
+    position: absolute;
+    width: 100%;
+  }
+
+  .back {
+    transform: rotateX(180deg);
+    color: var(--background);
+  }
+
+  .front {
+    color: var(--background);
+    strong {
+      cursor: pointer;
+    }
   }
 `
 
@@ -62,11 +72,11 @@ interface ImageWrapperProps {
   src: string
 }
 
-const ImageWrapper = React.forwardRef<HTMLAnchorElement, ImageWrapperProps>(
+const ImageWrapper = forwardRef<HTMLAnchorElement, ImageWrapperProps>(
   ({ src, ...props }, ref) => {
     return (
       <a ref={ref} style={{ zIndex: 3 }} {...props}>
-        <Image src={src} alt="day-icon" width={"100%"} height={"100%"} />
+        <Image src={src} alt={`${src}-icon`} width={80} height={80} />
       </a>
     )
   }
@@ -74,49 +84,28 @@ const ImageWrapper = React.forwardRef<HTMLAnchorElement, ImageWrapperProps>(
 
 const Day: React.FC<DayProps> = ({ dayIndex, dayDate }) => {
   const currentDay = dayIndex === Number(dayDate)
-  const { state: isFlipped, toggle: toggleFlipped } = useToggle()
-  const x = useMotionValue(0)
-  const xInput = [-100, 0, 100]
-  const background = useTransform(x, xInput, [
-    "linear-gradient(180deg, #ff008c 0%, rgb(211, 9, 225) 100%)",
-    "linear-gradient(180deg, #7700ff 0%, rgb(68, 0, 255) 100%)",
-    "linear-gradient(180deg, rgb(230, 255, 0) 0%, rgb(3, 209, 0) 100%)",
-  ])
 
   return (
     <StyledDay
-      onClick={toggleFlipped}
       className={`day-${dayIndex}`}
       currentDay={currentDay}
+      whileHover={{ scale: 1.06 }}
+      transition={{ duration: 0.15 }}
     >
-      <AnimatePresence>
-        {!isFlipped && (
-          <motion.section
-            key="front"
-            className="c front"
-            initial={{ opacity: 0, x: "-100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "-100%" }}
-            transition={{ damping: 3 }}
-          >
-            <p>{dayIndex}</p>
-          </motion.section>
-        )}
-        {isFlipped && (
-          <motion.section
-            key="back"
-            className="c back"
-            initial={{ opacity: 0, x: "-100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "-100%" }}
-            transition={{ damping: 3 }}
-          >
-            <Link href={`/day/${dayIndex}`} passHref>
-              <ImageWrapper src={`/icons/icon-${dayIndex}.svg`} />
-            </Link>
-          </motion.section>
-        )}
-      </AnimatePresence>
+      <motion.div
+        className="card"
+        whileHover={{ rotateX: 180 }}
+        transition={{ duration: 0.25 }}
+      >
+        <div className="face front">
+          <strong>{dayIndex}</strong>
+        </div>
+        <div className="face back">
+          <Link href={`/post/day-${dayIndex}`} as={`/post/day-${dayIndex}`} passHref>
+            <ImageWrapper src={`/icons/icon-${dayIndex}.svg`} />
+          </Link>
+        </div>
+      </motion.div>
     </StyledDay>
   )
 }

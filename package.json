@@ -15,8 +15,12 @@
     "test-all": "yarn lint && yarn type-check && yarn test"
   },
   "dependencies": {
+    "@mdx-js/loader": "^1.6.22",
     "axios": "^0.21.0",
+    "date-fns": "^2.16.1",
     "framer-motion": "^2.9.5",
+    "gray-matter": "^4.0.2",
+    "marked": "^1.2.7",
     "next": "latest",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
