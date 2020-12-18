@@ -20,7 +20,8 @@
     "paths": {
       "@components/*": ["components/*"],
       "@hooks/*": ["hooks/*"],
-      "@styles/*": ["styles/*"]
+      "@styles/*": ["styles/*"],
+      "@utils/*": ["utils/*"]
     }
   },
   "exclude": ["node_modules", ".next", "out"],

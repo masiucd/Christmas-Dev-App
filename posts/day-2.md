@@ -2,7 +2,7 @@
 title: yo
 description: "Welcome to the blog"
 spoiler: "about react hooks and why you should use them 🪝λ🚀"
-date: 2020-02-04T22:40:32.169Z
+date: "2020-02-04T22:40:32.169Z"
 ---
 
 ## How does this work?

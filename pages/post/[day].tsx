@@ -1,35 +1,29 @@
 import { GetStaticPropsContext } from "next"
-import { useRouter } from "next/dist/client/router"
 import React from "react"
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 import Head from "next/head"
-import { format } from "date-fns"
-import marked from "marked"
-
+import markdownToHtml from "@utils/markDownToHtml"
+import BlogPost from "@components/blog-post/blog-post"
 interface DayPageProps {
   day: string
-  content: string
   frontMatter: {
     title: string
     description: string
     spoiler: string
-    date: Date
+    date: string
   }
+  rawHtml: string
 }
 
-const DayPage = ({ day, content, frontMatter }: DayPageProps) => {
-  const { query } = useRouter()
-
+const DayPage = ({ frontMatter, rawHtml }: DayPageProps) => {
   return (
     <div>
       <Head>
         <title>{frontMatter.title}</title>
       </Head>
-      <h1>Hello from day {query.day} page </h1>
-      <p>slug is {day}</p>
-      <pre>{content}</pre>
+      <BlogPost frontMatter={frontMatter} rawHtml={rawHtml} />
     </div>
   )
 }
@@ -37,7 +31,7 @@ const DayPage = ({ day, content, frontMatter }: DayPageProps) => {
 export async function getStaticPaths() {
   const files = fs.readdirSync("posts")
   const paths = files.map((file) => ({ params: { day: file.replace(".md", "") } }))
-  // console.log(paths)
+
   return {
     paths,
     fallback: true,
@@ -61,8 +55,8 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext<DayParamT
   return {
     props: {
       day: params?.day,
-      content: parsedMarkDown.content,
       frontMatter: parsedMarkDown.data,
+      rawHtml: await markdownToHtml(parsedMarkDown.content),
     },
   }
 }

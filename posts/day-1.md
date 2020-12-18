@@ -2,7 +2,7 @@
 title: welcome
 description: "Welcome to the blog"
 spoiler: "lol"
-date: 2020-01-04T22:40:32.169Z
+date: "2020-01-04T22:40:32.169Z"
 ---
 
 ## How does this work?
