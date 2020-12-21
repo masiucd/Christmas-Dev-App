@@ -5,7 +5,7 @@ import NavList from "./nav-list"
 import { useToggle } from "@hooks/toggle"
 import MobileList from "./mobile-list"
 import NavCandyIcon from "./nav-candy-icon"
-import ThemeToggler from "./theme-toggler"
+import SwitchToggler from "./switch-toggler"
 
 interface NavProps {
   className: string
@@ -17,8 +17,8 @@ const Nav: React.FC<NavProps> = ({ className, handleTheme, theme }) => {
   const { state: iconHasBeenClicked, toggle: toggleIconHasBeenClicked } = useToggle()
   return (
     <nav className={className} data-testid="layout-main-nav">
-      <ThemeToggler handleTheme={handleTheme} theme={theme} />
       <NavCandyIcon />
+      <SwitchToggler theme={theme} handleTheme={handleTheme} />
       <NavIcon on={iconHasBeenClicked} toggle={toggleIconHasBeenClicked} />
       <NavList className="layout-main-nav-list" />
       <MobileList className="layout-mobile-list" on={iconHasBeenClicked} />
