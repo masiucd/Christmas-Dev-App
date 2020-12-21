@@ -6,8 +6,10 @@ import matter from "gray-matter"
 import Head from "next/head"
 import markdownToHtml from "@utils/markDownToHtml"
 import BlogPost from "@components/blog-post/blog-post"
+import BlogPostFooter from "@components/blog-post/blog-post-footer"
 interface DayPageProps {
   day: string
+  postsList: string[]
   frontMatter: {
     title: string
     description: string
@@ -17,20 +19,30 @@ interface DayPageProps {
   rawHtml: string
 }
 
-const DayPage = ({ frontMatter, rawHtml }: DayPageProps) => {
+const DayPage = ({ frontMatter, rawHtml, postsList, day }: DayPageProps) => {
+  const currentPostIndex = postsList.indexOf(day)
+  const lastPostIndex = postsList.length - 1
+
   return (
-    <div>
+    <>
       <Head>
         <title>{frontMatter.title}</title>
       </Head>
       <BlogPost frontMatter={frontMatter} rawHtml={rawHtml} />
-    </div>
+      <BlogPostFooter
+        postsList={postsList}
+        currentPostIndex={currentPostIndex}
+        lastPostIndex={lastPostIndex}
+      />
+    </>
   )
 }
 
 export async function getStaticPaths() {
   const files = fs.readdirSync("posts")
   const paths = files.map((file) => ({ params: { day: file.replace(".md", "") } }))
+  // params will we receive from `getStaticProps`
+  // notice that day has the match with name of the file
 
   return {
     paths,
@@ -49,6 +61,7 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext<DayParamT
     path.join("posts", fallBackDay + ".md"),
     "utf8"
   )
+  const postsList = fs.readdirSync("posts").map((post) => post.replace(".md", ""))
 
   const parsedMarkDown = matter(markDownWithMetaData)
 
@@ -57,6 +70,7 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext<DayParamT
       day: params?.day,
       frontMatter: parsedMarkDown.data,
       rawHtml: await markdownToHtml(parsedMarkDown.content),
+      postsList,
     },
   }
 }
