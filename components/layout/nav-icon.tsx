@@ -13,7 +13,7 @@ const StyledIcon = styled.div<StyledIconProps>`
   position: relative;
   transition: 300ms ease-in-out;
   width: 52px;
-  z-index: 2;
+  z-index: 2002;
   span {
     display: block;
     &:nth-child(1) {
@@ -55,6 +55,7 @@ const IconPart = styled.span`
   position: absolute;
   transition: 0.25s ease-in-out all;
   width: 100%;
+  z-index: 100;
   &:nth-child(1) {
     top: 0;
   }
@@ -77,10 +78,12 @@ const NavIcon: React.FC<NavIconProps> = ({ on, toggle }) => {
       onClick={toggle}
       on={on ? "animate" : "not-animate"}
       data-testid="styles-nav-icon"
+      id="nav-icon"
+      className="apa"
     >
-      <IconPart />
-      <IconPart />
-      <IconPart />
+      <IconPart className="menu-part" />
+      <IconPart className="menu-part" />
+      <IconPart className="menu-part" />
     </StyledIcon>
   )
 }

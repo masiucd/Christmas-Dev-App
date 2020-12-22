@@ -14,14 +14,22 @@ interface NavProps {
 }
 
 const Nav: React.FC<NavProps> = ({ className, handleTheme, theme }) => {
-  const { state: iconHasBeenClicked, toggle: toggleIconHasBeenClicked } = useToggle()
+  const {
+    state: iconHasBeenClicked,
+    toggle: toggleIconHasBeenClicked,
+    setToFalse: closeNavList,
+  } = useToggle()
   return (
     <nav className={className} data-testid="layout-main-nav">
       <NavCandyIcon />
       <SwitchToggler theme={theme} handleTheme={handleTheme} />
       <NavIcon on={iconHasBeenClicked} toggle={toggleIconHasBeenClicked} />
       <NavList className="layout-main-nav-list" />
-      <MobileList className="layout-mobile-list" on={iconHasBeenClicked} />
+      <MobileList
+        className="layout-mobile-list"
+        on={iconHasBeenClicked}
+        closeNavList={closeNavList}
+      />
     </nav>
   )
 }

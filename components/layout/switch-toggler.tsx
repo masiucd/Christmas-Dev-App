@@ -12,6 +12,7 @@ interface StyledSwitchTogglerProps {
 const StyledSwitchToggler = styled.label<StyledSwitchTogglerProps>`
   display: block;
   outline: 0;
+  z-index: 2;
   .action-area {
     background-color: #fbfbfb;
     border: 2px solid #fbfbfb;
@@ -76,7 +77,7 @@ const SwitchToggler: React.FC<SwitchTogglerProps> = ({ theme, handleTheme }) => 
         checked={t}
         onChange={handleTheme}
       />
-      <span className={`action-area ${t ? "on" : ""}`} />
+      <span className={`action-area ${theme === "light" ? "on" : "off"}`} />
     </StyledSwitchToggler>
   )
 }

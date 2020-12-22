@@ -10,7 +10,6 @@ interface BlogPostFooterProps {
 }
 
 const StyledFooter = styled.div`
-  border: 2px solid red;
   display: flex;
   justify-content: space-evenly;
   padding: 1rem;
