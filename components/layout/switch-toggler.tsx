@@ -76,6 +76,7 @@ const SwitchToggler: React.FC<SwitchTogglerProps> = ({ theme, handleTheme }) => 
         id="toggler"
         checked={t}
         onChange={handleTheme}
+        data-testid="theme-toggler"
       />
       <span className={`action-area ${theme === "light" ? "on" : "off"}`} />
     </StyledSwitchToggler>

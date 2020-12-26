@@ -16,6 +16,7 @@ module.exports = {
     "@components(.*)$": "<rootDir>/components$1",
     "@styles/(.*)": "<rootDir>/styles/$1",
     "@hooks/(.*)": "<rootDir>/hooks/$1",
+    "@test-utils/(.*)": "<rootDir>/test-utils/$1",
   },
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: ["./jest.setup.js"],

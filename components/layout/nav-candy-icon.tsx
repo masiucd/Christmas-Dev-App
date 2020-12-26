@@ -34,7 +34,7 @@ const NavCandyIcon = () => {
   return (
     <>
       <Link href="/">
-        <NavCandyIconStyles>
+        <NavCandyIconStyles data-testid="nav-icon-navbar">
           <Image src="/candy.svg" alt="main-logo" width={45} height={45} />
           <mark>X-mas calendar</mark>
         </NavCandyIconStyles>

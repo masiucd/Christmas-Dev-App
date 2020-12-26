@@ -4,7 +4,7 @@ const useLocalStorage = (key: string, defaultValue: string) => {
   const storedItem =
     typeof window !== "undefined" ? window.localStorage.getItem(key) : null
 
-  const [value, setValue] = useState(storedItem || defaultValue)
+  const [value, setValue] = useState(() => storedItem || defaultValue)
 
   useEffect(() => {
     if (!storedItem) {

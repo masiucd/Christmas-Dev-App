@@ -10,7 +10,7 @@ interface NavListProps {
 
 const NavList: React.FC<NavListProps> = ({ className }) => {
   return (
-    <ul className={className} data-testid="styled-nav-list">
+    <ul className={className} data-testid="main-styled-nav-list">
       {navListData.map((item) => (
         <NavLink key={item.path} path={item.path} text={item.name} />
       ))}
