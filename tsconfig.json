@@ -21,7 +21,8 @@
       "@components/*": ["components/*"],
       "@hooks/*": ["hooks/*"],
       "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@test-utils": ["test-utils/*"]
     }
   },
   "exclude": ["node_modules", ".next", "out"],

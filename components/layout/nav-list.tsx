@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { above, below } from "@styles/media-query"
-import { navListData } from "data/initial-data"
+import { navListData } from "../../data/initial-data"
 import NavLink from "./nav-link"
 
 interface NavListProps {
