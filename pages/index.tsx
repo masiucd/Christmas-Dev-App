@@ -1,4 +1,4 @@
-import Title from "@components/title"
+import Title from "@components/elements/title"
 import Head from "next/head"
 import MainCalender from "@components/calendar/main"
 import { calculateDaysUntilXmas } from "utils/helpers"

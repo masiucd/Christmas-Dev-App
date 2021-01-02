@@ -36,7 +36,8 @@ const GlobalStyles = createGlobalStyle`
     --paragraph: var(--greyish);
     --button: var(--green);
     --button-text: var(--dark);
-    --link-color: var(--dark2)
+    --link-color: var(--dark2);
+    --stroke-color: var(--dark2);
 
     /* Styles */
     --line: solid 1px var(--lineColor);
@@ -106,13 +107,15 @@ const GlobalStyles = createGlobalStyle`
   body[data-theme='light'] {
     --textColor: var(--black);
     --background: var(--white);
-    --lineColor: var(--greyish);
+    --lineColor: var(--dark2);
+    --stroke-color: var(--red);
 }
 
   body[data-theme='dark'] {
     --textColor: var(--white);
     --background: var(--dark);
-    --lineColor: var(--blueGreen);
+    --lineColor: var(--green);
+    --stroke-color: var(--blueGreen);
 }
 
 

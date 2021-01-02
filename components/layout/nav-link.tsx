@@ -9,13 +9,13 @@ interface NavLinkProp {
 
 const LinkItem = styled.li`
   a {
+    color: var(--textColor);
     display: block;
     font-size: 0.85em;
     margin-left: 0.2em;
     padding: 0.2em;
     position: relative;
     transition: var(--main-trans);
-
     &:after {
       content: "";
       position: absolute;

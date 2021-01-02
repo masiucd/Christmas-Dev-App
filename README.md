@@ -1,4 +1,4 @@
-# Christmas-Advent-Calendar-2020
+# Christmas-Dev-App
 
 ## Table of Contents
 
@@ -7,8 +7,9 @@
 
 ## About <a name = "about"></a>
 
-Christmas calender for year 2020.
-Every day is a special day and will have new suprise. Let's start the countdown to the wonderful days in the year.
+Christmas dev app, application with different dev surprises.
+Every day is a special day and will have new surprise with a new dev blog post.
+Christmas dev quiz to fresh upp your programing basics skills, nd perhaps there will be more... ƛ💪🚀
 
 ## Tools <a name = "tools"></a>
 
@@ -17,3 +18,13 @@ Every day is a special day and will have new suprise. Let's start the countdown 
 [typescript](https://www.typescriptlang.org/)
 [styled-components](https://styled-components.com/)
 [framer-motion](https://www.framer.com/motion/)
+
+#### Bash script Tip
+
+How I generated fast blog posts 1-24.
+
+from ./ in the project
+
+```vim
+ $ touch posts/day-{6..24}.md
+```

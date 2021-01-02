@@ -1,47 +1,37 @@
-import React, { useCallback, useRef } from "react"
+import React from "react"
 import { motion } from "framer-motion"
 import styled from "styled-components"
 import { above } from "@styles/media-query"
 import { navListData } from "../../data/initial-data"
 import NavLink from "./nav-link"
 import { useScroll } from "@hooks/scroll"
-import { useClickOutside } from "@hooks/click-outside"
 
 interface MobileListProps {
   className: string
   on: boolean
-  closeNavList: () => void
 }
 
 const changePosition = (y: number, n = 70): boolean => y >= n
 
-const MobileList: React.FC<MobileListProps> = ({ className, on, closeNavList }) => {
+const MobileList: React.FC<MobileListProps> = ({ className, on }) => {
   const { scrollY } = useScroll()
-  const ref = useRef(null)
-
-  const toggleList = useCallback(() => {
-    closeNavList()
-  }, [closeNavList])
-
-  useClickOutside(ref, toggleList)
 
   const variants = {
     open: { opacity: 1, y: 0 },
-    closed: { opacity: 0, y: "-100%" },
+    closed: { opacity: 0, y: "-200%" },
   }
 
   return (
     <motion.section
-      ref={ref}
       className={className}
       initial="closed"
       animate={on ? "open" : "closed"}
       variants={variants}
-      transition={{ damping: 7, delay: 0.2 }}
+      transition={{ damping: 7, delay: 0.3 }}
       exit="closed"
       style={{
-        position: changePosition(scrollY, 70) ? "fixed" : "absolute",
-        top: changePosition(scrollY, 70) ? 0 : "75px",
+        position: changePosition(scrollY, 76) ? "fixed" : "absolute",
+        top: changePosition(scrollY, 76) ? 0 : "75px",
       }}
     >
       <ul>

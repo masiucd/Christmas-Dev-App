@@ -1,6 +1,7 @@
 import { above } from "@styles/media-query"
-import React from "react"
+import React, { useRef } from "react"
 import styled from "styled-components"
+import { useClickOutside } from "@hooks/click-outside"
 
 type StyledIconProps = {
   on: "animate" | "not-animate"
@@ -20,7 +21,7 @@ const StyledIcon = styled.div<StyledIconProps>`
       ${({ on }) =>
         on === "animate"
           ? `  top: 12px;
-          transform: rotate(135deg);`
+          transform: rotate(135deg); color:red; `
           : null};
     }
     &:nth-child(2) {
@@ -70,16 +71,25 @@ const IconPart = styled.span`
 interface NavIconProps {
   on: boolean
   toggle: () => void
+  closeNavList: () => void
 }
 
-const NavIcon: React.FC<NavIconProps> = ({ on, toggle }) => {
+const NavIcon: React.FC<NavIconProps> = ({ on, toggle, closeNavList }) => {
+  const ref = useRef(null)
+
+  const handleClick = (): void => {
+    closeNavList()
+  }
+
+  useClickOutside(ref, handleClick)
+
   return (
     <StyledIcon
+      ref={ref}
       onClick={toggle}
       on={on ? "animate" : "not-animate"}
       data-testid="styles-nav-icon"
       id="nav-icon"
-      className="apa"
     >
       <IconPart className="menu-part" />
       <IconPart className="menu-part" />

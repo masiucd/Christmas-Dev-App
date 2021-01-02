@@ -1,7 +1,7 @@
 import { handleBlogPostDate } from "@utils/dates"
 import React from "react"
 import styled from "styled-components"
-import Title from "@components/title"
+import Title from "@components/elements/title"
 interface BlogPostProps {
   frontMatter: {
     title: string

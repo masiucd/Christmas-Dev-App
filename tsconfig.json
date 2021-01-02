@@ -11,6 +11,8 @@
     "esModuleInterop": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,

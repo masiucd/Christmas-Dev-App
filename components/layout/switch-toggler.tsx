@@ -11,8 +11,9 @@ interface StyledSwitchTogglerProps {
 }
 const StyledSwitchToggler = styled.label<StyledSwitchTogglerProps>`
   display: block;
+  margin-right: 1rem;
   outline: 0;
-  z-index: 2;
+  z-index: 5;
   .action-area {
     background-color: #fbfbfb;
     border: 2px solid #fbfbfb;
