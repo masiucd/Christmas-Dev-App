@@ -83,7 +83,7 @@ interface Props {
   children: React.ReactNode
 }
 
-export function QuizProvider({ children }: Props) {
+export function QuizProvider({ children, ...options }: Props) {
   const [state, dispatch] = React.useReducer(quizReducer, {
     quizData: [],
     status: "init",
@@ -91,7 +91,7 @@ export function QuizProvider({ children }: Props) {
     isGameDone: false,
   })
   return (
-    <QuizStateContext.Provider value={state}>
+    <QuizStateContext.Provider value={state} {...options}>
       <QuizDispatchContext.Provider value={dispatch}>
         {children}
       </QuizDispatchContext.Provider>

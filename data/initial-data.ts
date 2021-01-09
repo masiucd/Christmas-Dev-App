@@ -93,30 +93,30 @@ export const goQuiz: Quiz[] = [
 ]
 export const rustQuiz: Quiz[] = [
   {
-    question: "Who created Javascript?",
+    question: "Rust is garbage collected?",
     alternatives: [
-      { option: "a", a: "Bill Gates", correct: false },
-      { option: "b", a: "Brendan Eich", correct: true },
-      { option: "c", a: "Dennis Ritchie", correct: false },
-      { option: "d", a: "Guido van Rossum", correct: false },
+      { option: "a", a: "Yes sir", correct: false },
+      { option: "b", a: "Maybe..", correct: false },
+      { option: "c", a: "it's complicated...", correct: false },
+      { option: "d", a: "Nope!", correct: true },
     ],
   },
   {
-    question: "How do we declare block scoped variables in Javascript?",
+    question: "let is mutable by default?",
     alternatives: [
-      { option: "a", a: "With `let` keyword", correct: true },
-      { option: "b", a: "With `var` keyword", correct: false },
-      { option: "c", a: "With `function` keyword ", correct: false },
-      { option: "d", a: "With `class` keyword", correct: false },
+      { option: "a", a: "ohh yeah", correct: true },
+      { option: "b", a: "I don't think so mate!", correct: false },
+      { option: "c", a: "perhaps", correct: false },
+      { option: "d", a: "I don't know...", correct: false },
     ],
   },
   {
-    question: "How do we declare constants in Javascript?",
+    question: "How do we define a shape in Rust",
     alternatives: [
-      { option: "a", a: "With `let` keyword", correct: false },
-      { option: "b", a: "With `class` keyword", correct: false },
-      { option: "c", a: "With `const` keyword ", correct: true },
-      { option: "d", a: "With `var` keyword", correct: false },
+      { option: "a", a: "With `enum` keyword", correct: false },
+      { option: "b", a: "With `fn` keyword", correct: false },
+      { option: "c", a: "With `struct` keyword ", correct: true },
+      { option: "d", a: "With `let` keyword", correct: false },
     ],
   },
 ]

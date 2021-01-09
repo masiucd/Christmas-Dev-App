@@ -1,5 +1,5 @@
 import { Button } from "@components/elements/buttons"
-import { useQuizDispatch } from "context/quiz-context"
+import { useQuizDispatch } from "@context/quiz-context"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import React from "react"

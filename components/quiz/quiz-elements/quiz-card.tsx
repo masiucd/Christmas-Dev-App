@@ -1,5 +1,5 @@
 import { resetBtnStyles } from "@styles/css"
-import { useQuizDispatch, useQuizState } from "context/quiz-context"
+import { useQuizDispatch, useQuizState } from "@context/quiz-context"
 import { useEffect, useState } from "react"
 import { Alternative } from "@utils/types"
 import styled from "styled-components"
@@ -63,7 +63,7 @@ const QuizCard = () => {
         setQuizIndex((p) => p + 1)
       }
     } else {
-      dispatch({ type: "DECREMENT_SCORE" })
+      // dispatch({ type: "DECREMENT_SCORE" })
       setButtonClickTracker((p) => p + 1)
       if (quizIndex !== quizData.length - 1) {
         setQuizIndex((p) => p + 1)
@@ -74,7 +74,6 @@ const QuizCard = () => {
   useEffect(() => {
     if (buttonClickTracker > 0) {
       if (buttonClickTracker === quizData.length) {
-        // alert("apa")
         dispatch({ type: "SET_IS_GAME_DONE" })
       }
     }
@@ -86,6 +85,7 @@ const QuizCard = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 2 }}
       exit={{ opacity: 0 }}
+      data-testid="styled-quiz-card-wrapper"
     >
       <>
         {quizData.length > 0 && (

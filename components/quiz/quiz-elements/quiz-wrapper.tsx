@@ -1,13 +1,6 @@
 import { SubjectType } from "@utils/types"
-import { useQuizDispatch, useQuizState } from "context/quiz-context"
-
+import { useQuizDispatch, useQuizState } from "@context/quiz-context"
 import styled from "styled-components"
-
-const StyledQuizWrapper = styled.div`
-  padding: 1rem;
-  width: 100%;
-`
-
 import {
   backendQuiz,
   cssQuiz,
@@ -16,7 +9,7 @@ import {
   nodeQuiz,
   rustQuiz,
   serversQuiz,
-} from "data/initial-data"
+} from "../../../data/initial-data"
 import React, { useEffect } from "react"
 import QuizCard from "./quiz-card"
 import { AnimatePresence } from "framer-motion"
@@ -26,6 +19,10 @@ interface QuizWrapperProps {
   quizSubject: SubjectType
 }
 
+const StyledQuizWrapper = styled.div`
+  padding: 1rem;
+  width: 100%;
+`
 function handleSubjectType(subject: SubjectType) {
   switch (subject) {
     case "javascript":
@@ -62,7 +59,6 @@ export default function QuizWrapper({ quizSubject }: QuizWrapperProps) {
     return () => dispatch({ type: "CLEAR_QUIZ_DATA" })
   }, [dispatch, quizSubject, score])
 
-  const scorePrint = score < 0 ? score + quizData.length : score
   return (
     <>
       <AnimatePresence>
@@ -70,7 +66,7 @@ export default function QuizWrapper({ quizSubject }: QuizWrapperProps) {
           <AlertModal
             key="modal"
             title={`${quizSubject} quiz  finished`}
-            message={`you scored ${scorePrint} out of ${quizData.length} possible `}
+            message={`you scored ${score} out of ${quizData.length} possible `}
             cta
           />
         )}
