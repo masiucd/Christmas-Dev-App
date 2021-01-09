@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 export interface Alternative {
+=======
+interface Alternative {
+>>>>>>> (feat): render quiz and styles in PG
   option: string
   a: string
   correct: boolean

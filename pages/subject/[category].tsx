@@ -8,6 +8,10 @@ import Title from "@components/elements/title"
 
 const QuizPageWrapper = styled.section`
   align-items: center;
+<<<<<<< HEAD
+=======
+  border: 2px solid red;
+>>>>>>> (feat): render quiz and styles in PG
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,7 +19,11 @@ const QuizPageWrapper = styled.section`
   padding: 1em;
 `
 
+<<<<<<< HEAD
 const cx = css`
+=======
+const f = css`
+>>>>>>> (feat): render quiz and styles in PG
   h1 {
     border-bottom: 2px solid var(--textColor);
     display: inline-block;
@@ -33,7 +41,11 @@ const QuizSubjectPage = () => {
         <Title
           className="quiz-subject-page-title"
           mainTitle={`Subject ${query.category}`}
+<<<<<<< HEAD
           styles={cx}
+=======
+          styles={f}
+>>>>>>> (feat): render quiz and styles in PG
         />
         <QuizWrapper quizSubject={query.category as SubjectType} />
       </QuizPageWrapper>
