@@ -8,13 +8,10 @@ export const navListData = [
   {
     name: "quiz",
     path: "/quiz",
-<<<<<<< HEAD
   },
   {
     name: "jokes",
     path: "/jokes",
-=======
->>>>>>> (feat): render quiz and styles in PG
   },
   {
     name: "contact",
