@@ -18,3 +18,9 @@ export type SubjectType =
   | "go"
 
 export type Status = "pending" | "resolved" | "rejected" | "init"
+
+export interface Joke {
+  id: string
+  joke: string
+  status: 200
+}
