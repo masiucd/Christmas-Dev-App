@@ -1,38 +1,36 @@
 import React from "react"
 import Title from "@components/elements/title"
 import Head from "next/head"
-import { useJoke } from "@hooks/joke"
+import styled from "styled-components"
+import { Joke } from "@components/joke/joke"
+import { SearchJokeWrapper } from "@components/joke/search-joke-wrapper"
+
+const JokePageWrapper = styled.section`
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  min-height: 75vh;
+  position: relative;
+`
 
 const JokesPage = () => {
-  const { joke, isError, isLoading } = useJoke()
-
-  if (isLoading) return <div>...loading</div>
-  if (isError) return <div>{isError.message}</div>
-
-  console.log(joke)
   return (
     <>
       <Head>
         <title>joke&quot;s</title>
       </Head>
-      <Title className="jokes-page-title" mainTitle="Jokes" />
+      <Title
+        className="jokes-page-title"
+        mainTitle="Dad Jokes"
+        subTitle="Get some laugh's from `icanhazdadjoke.com`"
+      />
+      <SearchJokeWrapper />
+      <JokePageWrapper>
+        <Joke />
+      </JokePageWrapper>
     </>
   )
 }
-
-// export const getServerSideProps: GetServerSideProps = async () => {
-//   const res = await fetch("https://icanhazdadjoke.com", {
-//     headers: {
-//       Accept: "application/json",
-//     },
-//   })
-//   const data = await res.json()
-
-//   return {
-//     props: {
-//       dataTest: data,
-//     },
-//   }
-// }
 
 export default JokesPage

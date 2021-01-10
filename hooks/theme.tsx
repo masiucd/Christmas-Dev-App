@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useLocalStorage } from "./local-storage"
 
-function useTheme(themeKey: string, themeValue: string) {
+function useTheme(themeKey = "theme", themeValue = "light") {
   const { value, setValue } = useLocalStorage(themeKey, themeValue)
 
   const handleTheme = () => {
