@@ -46,6 +46,7 @@ export const Joke = () => {
   return (
     <>
       <RefreshButton
+        data-testid="refresh-button"
         configureRefresh={configureRefresh}
         onClick={() => {
           setState(joke.joke)
@@ -56,7 +57,14 @@ export const Joke = () => {
         }}
       >
         <h3>{state}</h3>
-        <Image id="candy-img" src="/candy.svg" alt="candy" width={500} height={500} />
+        <Image
+          aria-label="candy-image"
+          id="candy-img"
+          src="/candy.svg"
+          alt="candy"
+          width={500}
+          height={500}
+        />
       </RefreshButton>
     </>
   )
