@@ -10,4 +10,6 @@ const calculateDaysUntilXmas = (): number => {
   return Math.ceil((cmas.getTime() - today.getTime()) / oneDay)
 }
 
-export { calculateDaysUntilXmas }
+const randomListValue = <T>(xs: T[]): T => xs[Math.floor(Math.random() * xs.length)]
+
+export { calculateDaysUntilXmas, randomListValue }

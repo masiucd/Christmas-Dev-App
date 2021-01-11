@@ -1,7 +1,7 @@
 import * as React from "react"
-import { useJoke } from "@hooks/joke"
 import styled from "styled-components"
 import Image from "next/image"
+import { Joke as JokeType } from "@utils/types"
 
 interface RefreshButtonProps {
   configureRefresh: boolean
@@ -35,13 +35,18 @@ const RefreshButton = styled.button<RefreshButtonProps>`
     transition: var(--main-trans);
   }
 `
+interface JokeProps {
+  joke: JokeType
+  configureRefresh: boolean
+  setConfigureRefresh: React.Dispatch<React.SetStateAction<boolean>>
+}
 
-export const Joke = () => {
-  const [configureRefresh, setConfigureRefresh] = React.useState(false)
-  const { joke, isError, isLoading } = useJoke(configureRefresh)
-  const [state, setState] = React.useState("")
-  if (isLoading) return <div>...loading</div>
-  if (isError) return <div>{isError.message}</div>
+export const Joke: React.FC<JokeProps> = ({
+  joke,
+  configureRefresh,
+  setConfigureRefresh,
+}) => {
+  const [jokeText, setJokeText] = React.useState("")
 
   return (
     <>
@@ -49,14 +54,14 @@ export const Joke = () => {
         data-testid="refresh-button"
         configureRefresh={configureRefresh}
         onClick={() => {
-          setState(joke.joke)
+          setJokeText(joke.joke)
           setConfigureRefresh(true)
           setTimeout(() => {
             setConfigureRefresh(false)
           }, 1125)
         }}
       >
-        <h3>{state}</h3>
+        {jokeText && <h3 data-testid="joke-text">{jokeText}</h3>}
         <Image
           aria-label="candy-image"
           id="candy-img"

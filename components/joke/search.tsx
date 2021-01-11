@@ -3,7 +3,7 @@ import React from "react"
 import styled from "styled-components"
 
 interface Props {
-  on: boolean
+  on: string
 }
 
 const sidebar = {
@@ -29,7 +29,7 @@ const sidebar = {
 const Background = styled(motion.div)<Props>`
   background: var(--textColor);
   bottom: 0;
-  opacity: ${({ on }) => (on ? "1" : "0")};
+  opacity: ${({ on }) => (on === "true" ? "1" : "0")};
   position: absolute;
   right: 0;
   top: 12rem;
@@ -47,7 +47,7 @@ interface SearchProps {
 }
 export const Search = ({ isOpen }: SearchProps) => {
   return (
-    <Background variants={sidebar} on={isOpen}>
+    <Background variants={sidebar} on={isOpen.toString()}>
       <h1>hello</h1>
       <input type="text" />
     </Background>

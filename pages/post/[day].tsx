@@ -22,6 +22,7 @@ interface DayPageProps {
 const DayPage = ({ frontMatter, rawHtml, postsList, day }: DayPageProps) => {
   const currentPostIndex = postsList.indexOf(day)
   const lastPostIndex = postsList.length - 1
+  console.log(currentPostIndex)
 
   return (
     <>

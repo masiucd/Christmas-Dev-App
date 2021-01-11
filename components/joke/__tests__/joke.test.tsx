@@ -1,47 +1,28 @@
-import {
-  fireEvent,
-  render,
-  screen,
-  waitForElementToBeRemoved,
-} from "@testing-library/react"
+import { render, screen, waitForElementToBeRemoved } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+import { Joke as J } from "@utils/types"
+
 import { Joke } from "../joke"
-
-beforeAll(() => {
-  window.fetch = jest.fn(
-    (): Promise<any> =>
-      Promise.resolve({
-        json: () =>
-          Promise.resolve({
-            id: "id",
-            joke: "joke",
-            status: 200,
-          }),
-      })
-  )
-})
-
-// beforeEach(() => {
-//   jest.clearAllMocks()
-//   fetch.mockClear()
-// })
-
-// afterAll(() => {
-//   jest.clearAllMocks()
-// })
 
 describe("<Joke/>", () => {
   test("should render as expected", async () => {
-    render(<Joke />)
+    const joke: J = { id: "id", joke: "joke", status: 200 }
 
-    expect(screen.getByText(/loading/i)).toBeInTheDocument()
-    await waitForElementToBeRemoved(() => screen.getByText(/loading/i))
+    const setConfigureRefresh = jest.fn()
+    render(
+      <Joke joke={joke} setConfigureRefresh={setConfigureRefresh} configureRefresh />
+    )
+
+    // expect(screen.getByText(/loading/i)).toBeInTheDocument()
+    // await waitForElementToBeRemoved(() => screen.getByText(/loading/i))
+    // expect(screen.queryByText(/loading/i)).not.toBeInTheDocument()
 
     expect(screen.getByAltText(/candy/i)).toBeInTheDocument()
     const refreshButton = screen.getByTestId("refresh-button")
 
-    expect(screen.queryByText(/joke/i)).not.toBeInTheDocument()
-    fireEvent.click(refreshButton)
-    expect(screen.getByText(/joke/i)).toBeInTheDocument()
+    expect(screen.queryByTestId("joke-text")).not.toBeInTheDocument()
+    userEvent.click(refreshButton)
+    expect(screen.getByTestId("joke-text")).toBeInTheDocument()
 
     screen.debug()
   })

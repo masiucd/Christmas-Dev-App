@@ -1,8 +1,7 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import styled from "styled-components"
-import Image from "next/image"
-import { forwardRef } from "react"
+
 interface DayProps {
   dayIndex: number
   dayDate: string
@@ -56,7 +55,7 @@ const StyledDay = styled(motion.div)<StyledDayProps>`
   }
 
   .back {
-    transform: rotateX(180deg);
+    transform: rotateY(180deg);
     color: var(--background);
   }
 
@@ -64,23 +63,21 @@ const StyledDay = styled(motion.div)<StyledDayProps>`
     color: var(--background);
     strong {
       cursor: pointer;
+      font-size: 2em;
     }
   }
 `
-
-interface ImageWrapperProps {
-  src: string
+interface StyledIconWrapperProps {
+  day: number
 }
-
-const ImageWrapper = forwardRef<HTMLAnchorElement, ImageWrapperProps>(
-  ({ src, ...props }, ref) => {
-    return (
-      <a ref={ref} style={{ zIndex: 3 }} {...props}>
-        <Image src={src} alt={`${src}-icon`} width={80} height={80} />
-      </a>
-    )
-  }
-)
+const StyledIconWrapper = styled.div<StyledIconWrapperProps>`
+  background-image: ${({ day }) => (day ? `url(/icons/icon-${day}.svg)` : "")};
+  background-position: center;
+  background-size: cover;
+  height: 4rem;
+  padding-bottom: 36.5%;
+  width: 4rem;
+`
 
 const Day: React.FC<DayProps> = ({ dayIndex, dayDate }) => {
   const currentDay = dayIndex === Number(dayDate)
@@ -94,15 +91,18 @@ const Day: React.FC<DayProps> = ({ dayIndex, dayDate }) => {
     >
       <motion.div
         className="card"
-        whileHover={{ rotateX: 180 }}
+        whileHover={{ rotateY: 180 }}
         transition={{ duration: 0.25 }}
       >
         <div className="face front">
           <strong>{dayIndex}</strong>
         </div>
+
         <div className="face back">
-          <Link href={`/post/day-${dayIndex}`} as={`/post/day-${dayIndex}`} passHref>
-            <ImageWrapper src={`/icons/icon-${dayIndex}.svg`} />
+          <Link href={`/post/day-${dayIndex}`} as={`/post/day-${dayIndex}`}>
+            <a>
+              <StyledIconWrapper day={dayIndex} />
+            </a>
           </Link>
         </div>
       </motion.div>

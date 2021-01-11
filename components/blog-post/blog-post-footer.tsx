@@ -19,6 +19,9 @@ const StyledFooter = styled.div`
     text-align: center;
     width: 40%;
   }
+  #link {
+    color: var(--textColor);
+  }
 `
 
 const BlogPostFooter: React.FC<BlogPostFooterProps> = ({
@@ -31,6 +34,7 @@ const BlogPostFooter: React.FC<BlogPostFooterProps> = ({
       {currentPostIndex > 0 && (
         <Link href={`/post/${postsList[currentPostIndex - 1]}`}>
           <motion.a
+            id="link"
             whileHover={{
               scale: 1.1,
             }}
@@ -44,6 +48,7 @@ const BlogPostFooter: React.FC<BlogPostFooterProps> = ({
       {lastPostIndex !== currentPostIndex && (
         <Link href={`/post/${postsList[currentPostIndex + 1]}`}>
           <motion.a
+            id="link"
             whileHover={{
               scale: 1.1,
             }}

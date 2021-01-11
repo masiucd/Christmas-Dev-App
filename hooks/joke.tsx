@@ -8,11 +8,15 @@ interface UseJoke {
   isError: Error
 }
 
-export const useJoke = (configureRefresh: boolean): UseJoke => {
+export const useJoke = (configureRefresh: boolean, initialData: Joke): UseJoke => {
   const { data, error } = useSWR(
     ["https://icanhazdadjoke.com", "application/json"],
     fetcher,
-    { refreshInterval: configureRefresh ? 1000 : 0 }
+    {
+      refreshInterval: configureRefresh ? 1000 : 0,
+      // pre-fetched data as the initial value to the initialData option.
+      initialData,
+    }
   )
 
   return {

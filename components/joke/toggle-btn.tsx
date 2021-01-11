@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 interface ButtonStylesProps {
-  on: boolean
+  on?: boolean
 }
 const ButtonStyles = styled.button<ButtonStylesProps>`
   background: var(--textColor);
@@ -31,9 +31,5 @@ interface ToggleButtonProps {
 }
 
 export const ToggleButton = ({ toggle, on }: ToggleButtonProps) => {
-  return (
-    <ButtonStyles onClick={toggle} on={on}>
-      search
-    </ButtonStyles>
-  )
+  return <ButtonStyles onClick={toggle}>search</ButtonStyles>
 }

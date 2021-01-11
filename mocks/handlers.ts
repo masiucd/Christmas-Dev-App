@@ -1,35 +1,14 @@
+import { randomListValue } from "@utils/helpers"
 import { rest } from "msw"
+import { jokes } from "./jokes-data"
 
 export const handlers = [
-  rest.post("/login", (req, res, ctx) => {
-    sessionStorage.setItem("is-auth", "true")
-    return res(ctx.status(200))
-  }),
-  rest.get("/user", (req, res, ctx) => {
-    const isAuth = Boolean(JSON.stringify(sessionStorage.getItem("is-auth"))) || false
-
-    if (!isAuth) {
-      return res(
-        ctx.status(403),
-        ctx.json({
-          errorMessage: "Not authorized",
-        })
-      )
-    }
-
+  rest.get("https://icanhazdadjoke.com", (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
-        username: "admin",
-      })
-    )
-  }),
-
-  rest.get("/joke", (req, res, ctx) => {
-    return res(
-      ctx.json({
         id: "id",
-        joke: "joke",
+        joke: randomListValue(jokes),
         status: 200,
       })
     )
