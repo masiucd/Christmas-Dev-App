@@ -22,7 +22,6 @@ interface DayPageProps {
 const DayPage = ({ frontMatter, rawHtml, postsList, day }: DayPageProps) => {
   const currentPostIndex = postsList.indexOf(day)
   const lastPostIndex = postsList.length - 1
-  console.log(currentPostIndex)
 
   return (
     <>
@@ -62,7 +61,13 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext<DayParamT
     path.join("posts", fallBackDay + ".md"),
     "utf8"
   )
-  const postsList = fs.readdirSync("posts").map((post) => post.replace(".md", ""))
+  const postsList = fs
+    .readdirSync("posts")
+    .map((post) => post.replace(".md", ""))
+    .map((x) => x.split("-")[1])
+    .map(Number)
+    .sort((a, b) => a - b)
+    .map((x) => "day-" + x)
 
   const parsedMarkDown = matter(markDownWithMetaData)
 

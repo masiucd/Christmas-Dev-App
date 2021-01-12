@@ -1,5 +1,5 @@
+import * as React from "react"
 import { motion } from "framer-motion"
-import React from "react"
 import styled from "styled-components"
 
 interface Props {
@@ -44,12 +44,14 @@ const Background = styled(motion.div)<Props>`
 
 interface SearchProps {
   isOpen: boolean
+  termText: string
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
-export const Search = ({ isOpen }: SearchProps) => {
+export const Search = ({ isOpen, termText, handleChange }: SearchProps) => {
   return (
     <Background variants={sidebar} on={isOpen.toString()}>
-      <h1>hello</h1>
-      <input type="text" />
+      <input type="text" onChange={handleChange} value={termText} />
+      <h1>{termText}</h1>
     </Background>
   )
 }

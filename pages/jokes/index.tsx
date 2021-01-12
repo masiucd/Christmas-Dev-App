@@ -39,6 +39,7 @@ const JokesPage: NextPage<JokesPageProps> = ({ jokeData }) => {
         mainTitle="Dad Jokes"
         subTitle="Get some laugh's by clicking on the candy"
       />
+
       <SearchJokeWrapper />
       <JokePageWrapper>
         <Joke
@@ -66,11 +67,8 @@ export const getStaticProps: GetStaticProps = async () => {
 //   const jokeData = await response.data
 
 //   return {
-
 //     props: {
-
 //       jokeData,
-
 //     },
 //   }
 // }

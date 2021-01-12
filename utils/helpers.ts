@@ -12,4 +12,13 @@ const calculateDaysUntilXmas = (): number => {
 
 const randomListValue = <T>(xs: T[]): T => xs[Math.floor(Math.random() * xs.length)]
 
-export { calculateDaysUntilXmas, randomListValue }
+const matchPattern = (xs: string[], term: string) => {
+  // some jibrish that will not match and array will be empty by default
+  const searchTerm = term.length > 0 ? term : "#242341@@12"
+  return xs.filter((x) => {
+    const re = new RegExp(`${searchTerm}`, "ig")
+    return x.match(re)
+  })
+}
+
+export { calculateDaysUntilXmas, randomListValue, matchPattern }
