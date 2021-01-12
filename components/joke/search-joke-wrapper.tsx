@@ -30,6 +30,7 @@ export const SearchJokeWrapper = () => {
     >
       <Search isOpen={isOpen} termText={termText} handleChange={handleChange} />
       <ToggleButton toggle={() => toggleOpen()} on={isOpen} />
+
       {data && data.jokes.length > 0
         ? data.jokes.map((x: string) => <p key={x}>{x}</p>)
         : null}
