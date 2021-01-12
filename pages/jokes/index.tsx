@@ -5,7 +5,7 @@ import styled from "styled-components"
 import { Joke } from "@components/joke/joke"
 import { SearchJokeWrapper } from "@components/joke/search-joke-wrapper"
 import { useJoke } from "@hooks/joke"
-import { GetServerSideProps, GetStaticProps, NextPage } from "next"
+import { GetStaticProps, NextPage } from "next"
 import axios from "axios"
 import { Joke as JokeType } from "@utils/types"
 
@@ -62,15 +62,5 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   }
 }
-// export const getServerSideProps: GetServerSideProps = async () => {
-//   const response = await axios.get("https://icanhazdadjoke.com")
-//   const jokeData = await response.data
-
-//   return {
-//     props: {
-//       jokeData,
-//     },
-//   }
-// }
 
 export default JokesPage

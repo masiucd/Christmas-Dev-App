@@ -1,9 +1,10 @@
 import * as React from "react"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import styled from "styled-components"
+import SearchTerm from "./search-term"
 
-interface Props {
-  on: string
+interface BackgroundProps {
+  on?: number
 }
 
 const sidebar = {
@@ -16,7 +17,8 @@ const sidebar = {
     },
   }),
   closed: {
-    clipPath: "circle(30px at 40px 40px)",
+    // clipPath: "circle(30px at 40px 40px)",
+    clipPath: "circle(1px at 1px 1px)",
     transition: {
       delay: 0.5,
       type: "spring",
@@ -26,32 +28,76 @@ const sidebar = {
   },
 }
 
-const Background = styled(motion.div)<Props>`
+const Background = styled(motion.div)<BackgroundProps>`
+  align-items: center;
   background: var(--textColor);
   bottom: 0;
-  opacity: ${({ on }) => (on === "true" ? "1" : "0")};
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
   position: absolute;
   right: 0;
   top: 12rem;
   transition: opacity 500ms ease-in-out;
   width: 100%;
   z-index: 100;
-  h1 {
+  p {
     color: var(--background);
-    position: relative;
+    border-bottom: 2px solid var(--background);
+    transform: rotate(2deg);
   }
+  ul {
+    padding: 1rem 2rem;
+  }
+`
+
+const SearchTermInput = styled.input`
+  border: 2px solid var(--background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadowMd);
+  font-size: 1.2em;
+  margin: 1rem auto;
+  max-width: 20em;
+  outline: 0;
+  padding: 0.4em 0.75em;
+  transition: var(--main-trans);
 `
 
 interface SearchProps {
   isOpen: boolean
   termText: string
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  data: {
+    jokes: string[]
+  }
 }
-export const Search = ({ isOpen, termText, handleChange }: SearchProps) => {
+export const Search = ({ isOpen, termText, handleChange, data }: SearchProps) => {
   return (
-    <Background variants={sidebar} on={isOpen.toString()}>
-      <input type="text" onChange={handleChange} value={termText} />
-      <h1>{termText}</h1>
-    </Background>
+    <AnimatePresence>
+      {/* With AnimatePresence we can control our animations even when component gets unmounted from the tree  */}
+      {isOpen && (
+        <Background
+          key="child"
+          variants={sidebar}
+          initial="closed"
+          animate="open"
+          exit="closed"
+        >
+          <p>Search for a joke</p>
+          <SearchTermInput
+            data-testid="search-input"
+            type="text"
+            onChange={handleChange}
+            value={termText}
+          />
+
+          <ul data-testid="search-list">
+            {data && data.jokes.length > 0
+              ? data.jokes.map((x: string) => <SearchTerm key={x} term={x} />)
+              : null}
+          </ul>
+        </Background>
+      )}
+    </AnimatePresence>
   )
 }

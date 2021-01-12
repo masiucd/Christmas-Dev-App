@@ -3,37 +3,39 @@ import { motion, useCycle } from "framer-motion"
 import { useDimensions } from "@hooks/dimensions"
 import { ToggleButton } from "./toggle-btn"
 import { Search } from "./search"
-import useSWR from "swr"
-import { axiosFetcher as fetcher } from "@utils/swr"
+import styled from "styled-components"
+import { useSearchTerm } from "@hooks/search-term"
+
+const StyledWrapper = styled(motion.div)`
+  height: 100%;
+`
 
 export const SearchJokeWrapper = () => {
   const [isOpen, toggleOpen] = useCycle(false, true)
   const containerRef = React.useRef(null)
   const { height } = useDimensions(containerRef)
   const [termText, setTermText] = React.useState("")
-  const [searchData, setSearchData] = React.useState<string[]>([])
-  // https://icanhazdadjoke.com/search?term=apa
-  const { data } = useSWR(`/search?term=${termText}`, fetcher)
-  // TODO: delete
-  console.log(data)
+  const { term } = useSearchTerm(termText)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setTermText(event.target.value)
   }
 
   return (
-    <motion.div
+    <StyledWrapper
       initial={false}
       animate={isOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}
     >
-      <Search isOpen={isOpen} termText={termText} handleChange={handleChange} />
-      <ToggleButton toggle={() => toggleOpen()} on={isOpen} />
+      <Search
+        isOpen={isOpen}
+        termText={termText}
+        handleChange={handleChange}
+        data={term}
+      />
 
-      {data && data.jokes.length > 0
-        ? data.jokes.map((x: string) => <p key={x}>{x}</p>)
-        : null}
-    </motion.div>
+      <ToggleButton toggle={() => toggleOpen()} on={isOpen} />
+    </StyledWrapper>
   )
 }
