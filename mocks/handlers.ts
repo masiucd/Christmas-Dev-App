@@ -19,13 +19,15 @@ export const handlers = [
     const term = req.url.searchParams.get("term")
     // console.log(req.url.searchParams)
 
-    return res(ctx.status(200), ctx.json({ hello: "hello", term }))
+    const xs = matchPattern(jokes, term ? term : "")
+    // return res(ctx.status(200), ctx.json({  term }))
+    return res(ctx.status(200), ctx.json({ jokes: xs, term }))
   }),
+
   rest.get("/search", (req, res, ctx) => {
     const term = req.url.searchParams.get("term")
 
     const xs = matchPattern(jokes, term ? term : "")
-
     return res(ctx.status(200), ctx.json({ jokes: xs, term }))
   }),
 ]
