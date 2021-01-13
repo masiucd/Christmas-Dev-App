@@ -35,6 +35,7 @@ interface ToggleButtonProps {
 }
 
 export const ToggleButton = ({ toggle, on }: ToggleButtonProps) => {
+  console.log(on)
   return (
     <ButtonStyles onClick={toggle} on={on ? 1 : 0}>
       {on ? "close" : "search"}

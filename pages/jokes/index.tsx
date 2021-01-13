@@ -26,7 +26,7 @@ interface JokesPageProps {
 const JokesPage: NextPage<JokesPageProps> = ({ jokeData }) => {
   const { joke, refresh, isLoading } = useJoke(jokeData)
 
-  // if (isLoading) return <Spinner />
+  if (isLoading) return <Spinner />
   // if (isError) return <div>{isError.message}</div>
 
   return (
@@ -40,7 +40,7 @@ const JokesPage: NextPage<JokesPageProps> = ({ jokeData }) => {
         subTitle="Get some laugh's by clicking on the candy"
       />
 
-      {/* <SearchJokeWrapper /> */}
+      <SearchJokeWrapper />
       <JokePageWrapper>
         <Joke joke={joke} refresh={refresh} />
       </JokePageWrapper>
