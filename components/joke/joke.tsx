@@ -4,7 +4,7 @@ import Image from "next/image"
 import { Joke as JokeType } from "@utils/types"
 
 interface RefreshButtonProps {
-  configureRefresh: boolean
+  hasRefreshed?: boolean
 }
 const RefreshButton = styled.button<RefreshButtonProps>`
   background: transparent;
@@ -30,35 +30,32 @@ const RefreshButton = styled.button<RefreshButtonProps>`
   }
 
   #candy-img {
-    transform: ${({ configureRefresh }) =>
-      configureRefresh ? `rotate(45deg)` : `rotate(0deg)`};
+    transform: ${({ hasRefreshed }) => (hasRefreshed ? `rotate(45deg)` : `rotate(0deg)`)};
+
     transition: var(--main-trans);
   }
 `
 interface JokeProps {
   joke: JokeType
-  configureRefresh: boolean
-  setConfigureRefresh: React.Dispatch<React.SetStateAction<boolean>>
+  refresh: (data?: JokeType, shouldRevalidate?: boolean | undefined) => Promise<JokeType>
 }
 
-export const Joke: React.FC<JokeProps> = ({
-  joke,
-  configureRefresh,
-  setConfigureRefresh,
-}) => {
+export const Joke: React.FC<JokeProps> = ({ joke, refresh }) => {
   const [jokeText, setJokeText] = React.useState("")
+  const [hasRefreshed, setHasRefreshed] = React.useState(false)
 
   return (
     <>
       <RefreshButton
+        hasRefreshed={hasRefreshed}
         data-testid="refresh-button"
-        configureRefresh={configureRefresh}
         onClick={() => {
           setJokeText(joke.joke)
-          setConfigureRefresh(true)
+          refresh()
+          setHasRefreshed(true)
           setTimeout(() => {
-            setConfigureRefresh(false)
-          }, 1125)
+            setHasRefreshed(false)
+          }, 500)
         }}
       >
         {jokeText && <h3 data-testid="joke-text">{jokeText}</h3>}

@@ -58,7 +58,12 @@ const transition = {
 
 export const Spinner = () => {
   return (
-    <LoadingWrapper variants={containerVariants} initial="start" animate="end">
+    <LoadingWrapper
+      variants={containerVariants}
+      initial="start"
+      animate="end"
+      data-testid="loading-spinner"
+    >
       <Circle
         variants={circleVariants}
         initial="start"

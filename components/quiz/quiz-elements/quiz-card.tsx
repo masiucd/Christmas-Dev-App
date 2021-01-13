@@ -80,7 +80,6 @@ const QuizCard = () => {
   }, [buttonClickTracker, dispatch, quizData.length])
 
   return (
-<<<<<<< HEAD
     <StyledQuizCard
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -107,36 +106,6 @@ const QuizCard = () => {
         )}
       </>
     </StyledQuizCard>
-=======
-    <>
-      <StyledQuizCard>
-        <>
-          {quizData.length > 0 && (
-            <>
-              <QuestionTitleWrapper>
-                <strong>{quizData[quizIndex].question}</strong>
-              </QuestionTitleWrapper>
-              <StyledQuizCardList>
-                {quizData[quizIndex].alternatives.map((x) => (
-                  <li key={x.option}>
-                    <button type="button" onClick={() => handleClick(x)}>
-                      {x.a}
-                    </button>
-                  </li>
-                ))}
-              </StyledQuizCardList>
-            </>
-          )}
-        </>
-      </StyledQuizCard>
-      <button
-        onClick={() => setQuizIndex((p) => p + 1)}
-        disabled={quizIndex === quizData.length - 1}
-      >
-        LOL!!!!
-      </button>
-    </>
->>>>>>> (feat): increment , decrement score depending if it is correct ore wrong
   )
 }
 export default QuizCard
