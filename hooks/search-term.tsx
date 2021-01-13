@@ -3,15 +3,21 @@ import useSWR from "swr"
 
 const BASE_URL = "https://icanhazdadjoke.com"
 
-export const useSearchTerm = (termText: string) => {
-  // https://icanhazdadjoke.com/search?term=apa
-  const url = `${BASE_URL}/search?term=${termText}`
+interface SearchTerm {
+  term: string[] | []
+  isLoading: boolean
+  error: Error
+}
 
-  const { data, error } = useSWR(url, fetcher)
-  // const { data, error } = useSWR(`/search?term=${termText}`, fetcher)
+export const useSearchTerm = (termText: string): SearchTerm => {
+  // https://icanhazdadjoke.com/search?term=apa
+  const URL = `${BASE_URL}/search?term=${termText}`
+
+  const { data, error } = useSWR(URL, fetcher)
 
   return {
     term: data,
     isLoading: !error && !data,
+    error,
   }
 }
