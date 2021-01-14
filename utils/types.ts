@@ -24,3 +24,10 @@ export interface Joke {
   joke: string
   status: 200
 }
+
+export interface NoJoke {
+  msg: string
+  status: number
+}
+
+export type PromiseJoke = Joke | NoJoke

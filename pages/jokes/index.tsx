@@ -5,7 +5,7 @@ import styled from "styled-components"
 import { Joke } from "@components/joke/joke"
 import { SearchJokeWrapper } from "@components/joke/search-joke-wrapper"
 import { useJoke } from "@hooks/joke"
-import { GetServerSideProps, NextPage } from "next"
+import { GetStaticProps, NextPage } from "next"
 import axios from "axios"
 import { Joke as JokeType } from "@utils/types"
 import { Spinner } from "@components/spinner/spinner"
@@ -24,10 +24,10 @@ interface JokesPageProps {
 }
 
 const JokesPage: NextPage<JokesPageProps> = ({ jokeData }) => {
-  const { joke, refresh, isLoading } = useJoke(jokeData)
+  const { joke, status, refetchJoke, error } = useJoke(jokeData)
 
-  if (isLoading) return <Spinner />
-  // if (isError) return <div>{isError.message}</div>
+  if (status === "loading") return <Spinner />
+  if (error) return <pre>{JSON.stringify(error, null, 4)}</pre>
 
   return (
     <>
@@ -42,14 +42,16 @@ const JokesPage: NextPage<JokesPageProps> = ({ jokeData }) => {
 
       <SearchJokeWrapper />
       <JokePageWrapper>
-        <Joke joke={joke} refresh={refresh} />
+        <Joke joke={joke} refetchJoke={refetchJoke} />
       </JokePageWrapper>
     </>
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await axios.get("https://icanhazdadjoke.com")
+export const getStaticProps: GetStaticProps = async () => {
+  const response = await axios.get("https://icanhazdadjoke.com", {
+    headers: { Accept: "application/json" },
+  })
   const jokeData: Partial<JokeType> = await response.data
   return {
     props: {

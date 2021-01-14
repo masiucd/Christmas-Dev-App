@@ -10,6 +10,7 @@ import { ReactQueryDevtools } from "react-query/devtools"
 // const { init } = require("../mocks")
 // init()
 // }
+
 const queryClient = new QueryClient()
 
 export default function MyApp({ Component, pageProps }: AppProps) {
