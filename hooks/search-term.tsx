@@ -1,23 +1,36 @@
-import { jokeFetcher as fetcher } from "@utils/swr"
-import useSWR from "swr"
-
-const BASE_URL = "https://icanhazdadjoke.com"
+import { Joke, Status } from "@utils/types"
+import { useQuery } from "react-query"
+import { getJokes } from "@utils/swr"
 
 interface SearchTerm {
-  term: string[] | []
-  isLoading: boolean
+  jokes: (Joke | undefined)[] | undefined
+  status: Status
   error: Error
+  isFetching: boolean
 }
 
 export const useSearchTerm = (termText: string): SearchTerm => {
-  // https://icanhazdadjoke.com/search?term=apa
-  const URL = `${BASE_URL}/search?term=${termText}`
-
-  const { data, error } = useSWR(URL, fetcher)
-
+  const { data, error, status, isFetching } = useQuery(
+    ["search-joke", termText],
+    getJokes,
+    {
+      enabled: termText.length > 0,
+    }
+  )
+  const err = error as Error
   return {
-    term: data,
-    isLoading: !error && !data,
-    error,
+    jokes: data,
+    status,
+    error: err,
+    isFetching,
   }
+  // const URL = `${BASE_URL}/search?term=${termText}`
+
+  // const { data, error, status } = useQuery("search-joke", () => getJokes(URL))
+
+  // return {
+  //   jokes: data,
+  //   status,
+  //   error,
+  // }
 }

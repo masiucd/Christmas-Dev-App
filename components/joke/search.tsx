@@ -2,6 +2,8 @@ import * as React from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import styled from "styled-components"
 import SearchTerm from "./search-term"
+import { Joke, Status } from "@utils/types"
+import { Spinner } from "@components/spinner/spinner"
 
 interface BackgroundProps {
   on?: number
@@ -67,11 +69,16 @@ interface SearchProps {
   isOpen: boolean
   termText: string
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
-  data: {
-    jokes: string[]
-  }
+  jokes: (Joke | undefined)[] | undefined
+  isFetching: boolean
 }
-export const Search = ({ isOpen, termText, handleChange, data }: SearchProps) => {
+export const Search = ({
+  isOpen,
+  termText,
+  handleChange,
+  isFetching,
+  jokes,
+}: SearchProps) => {
   return (
     <AnimatePresence>
       {/* With AnimatePresence we can control our animations even when component gets unmounted from the tree  */}
@@ -84,6 +91,7 @@ export const Search = ({ isOpen, termText, handleChange, data }: SearchProps) =>
           exit="closed"
         >
           <p>Search for a joke</p>
+          {isFetching && <Spinner />}
           <SearchTermInput
             data-testid="search-input"
             type="text"
@@ -92,8 +100,8 @@ export const Search = ({ isOpen, termText, handleChange, data }: SearchProps) =>
           />
 
           <ul data-testid="search-list">
-            {data && data.jokes.length > 0
-              ? data.jokes.map((x: string) => <SearchTerm key={x} term={x} />)
+            {jokes && jokes.length > 0
+              ? jokes.map((joke) => <SearchTerm key={joke?.id} term={joke?.joke} />)
               : null}
           </ul>
         </Background>

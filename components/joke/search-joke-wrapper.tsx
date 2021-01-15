@@ -5,7 +5,6 @@ import { ToggleButton } from "./toggle-btn"
 import { Search } from "./search"
 import styled from "styled-components"
 import { useSearchTerm } from "@hooks/search-term"
-import { Spinner } from "@components/spinner/spinner"
 
 const StyledWrapper = styled(motion.div)`
   height: 100%;
@@ -16,14 +15,12 @@ export const SearchJokeWrapper = () => {
   const containerRef = React.useRef(null)
   const { height } = useDimensions(containerRef)
   const [termText, setTermText] = React.useState("")
-  const { term, isLoading } = useSearchTerm(termText)
+
+  const { jokes, isFetching } = useSearchTerm(termText)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setTermText(event.target.value)
   }
-
-  if (isLoading) return <Spinner />
-  console.log(term.results)
 
   return (
     <StyledWrapper
@@ -32,12 +29,13 @@ export const SearchJokeWrapper = () => {
       custom={height}
       ref={containerRef}
     >
-      {/* <Search
+      <Search
         isOpen={isOpen}
         termText={termText}
         handleChange={handleChange}
-        data={term}
-      /> */}
+        jokes={jokes}
+        isFetching={isFetching}
+      />
 
       <ToggleButton toggle={() => toggleOpen()} on={isOpen} />
     </StyledWrapper>

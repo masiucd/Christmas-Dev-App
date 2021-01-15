@@ -17,7 +17,7 @@ export type SubjectType =
   | "rust"
   | "go"
 
-export type Status = "pending" | "resolved" | "rejected" | "init"
+export type Status = "idle" | "error" | "loading" | "success"
 
 export interface Joke {
   id: string
@@ -29,5 +29,3 @@ export interface NoJoke {
   msg: string
   status: number
 }
-
-export type PromiseJoke = Joke | NoJoke

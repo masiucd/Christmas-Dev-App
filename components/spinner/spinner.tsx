@@ -1,7 +1,6 @@
 import React from "react"
 import { motion } from "framer-motion"
 import styled from "styled-components"
-import { transform } from "jest.config"
 
 const LoadingWrapper = styled(motion.div)`
   align-items: center;
@@ -14,7 +13,7 @@ const LoadingWrapper = styled(motion.div)`
   top: 50%;
   transform: translate(-50%, -50%);
   width: 5rem;
-  z-index: 100;
+  z-index: 200;
 `
 const Circle = styled(motion.span)`
   background-color: var(--textColor);

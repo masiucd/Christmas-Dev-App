@@ -15,12 +15,6 @@ interface UseJoke {
 const URL = "https://icanhazdadjoke.com"
 
 export const useJoke = (initialData: Joke): UseJoke => {
-  // console.log("initialData", initialData)
-  // const { data, error, mutate } = useSWR(URL, fetcher, {
-  // pre-fetched data as the initial value to the initialData option.
-  // initialData,
-  // })
-
   const { status, data, error, isLoading, refetch } = useQuery(
     "joke",
     () => getJoke(URL),

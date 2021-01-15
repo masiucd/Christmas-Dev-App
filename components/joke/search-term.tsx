@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 interface SearchTermProps {
-  term: string
+  term: string | undefined
 }
 
 const StyledTerm = styled.li`
@@ -13,6 +13,6 @@ const StyledTerm = styled.li`
   z-index: 100;
 `
 const SearchTerm: React.FC<SearchTermProps> = ({ term }) => {
-  return <StyledTerm>{term}</StyledTerm>
+  return <StyledTerm>{term || ""}</StyledTerm>
 }
 export default SearchTerm
