@@ -21,4 +21,6 @@ const matchPattern = (xs: string[], term: string) => {
   })
 }
 
-export { calculateDaysUntilXmas, randomListValue, matchPattern }
+const randomNumber = (n = 10): number => Math.floor(Math.random() * n)
+
+export { calculateDaysUntilXmas, randomListValue, matchPattern, randomNumber }

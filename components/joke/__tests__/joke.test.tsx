@@ -9,8 +9,9 @@ describe("<Joke/>", () => {
   test("should render as expected", async () => {
     const joke: J = { id: "id", joke: "joke", status: 200 }
 
-    const refresh = jest.fn()
-    render(<Joke joke={joke} refresh={refresh} />)
+    const refetchJoke = jest.fn()
+
+    render(<Joke joke={joke} refetchJoke={refetchJoke} />)
 
     // expect(screen.getByText(/loading/i)).toBeInTheDocument()
     // await waitForElementToBeRemoved(() => screen.getByText(/loading/i))
@@ -22,5 +23,6 @@ describe("<Joke/>", () => {
     expect(screen.queryByTestId("joke-text")).not.toBeInTheDocument()
     userEvent.click(refreshButton)
     expect(screen.getByTestId("joke-text")).toBeInTheDocument()
+    expect(refetchJoke).toHaveBeenCalled()
   })
 })

@@ -2,7 +2,7 @@ import * as React from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import styled from "styled-components"
 import SearchTerm from "./search-term"
-import { Joke, Status } from "@utils/types"
+import { Joke } from "@utils/types"
 import { Spinner } from "@components/spinner/spinner"
 
 interface BackgroundProps {

@@ -12,7 +12,7 @@ interface SearchTerm {
 export const useSearchTerm = (termText: string): SearchTerm => {
   const { data, error, status, isFetching } = useQuery(
     ["search-joke", termText],
-    getJokes,
+    () => getJokes(termText),
     {
       enabled: termText.length > 0,
     }
@@ -24,13 +24,4 @@ export const useSearchTerm = (termText: string): SearchTerm => {
     error: err,
     isFetching,
   }
-  // const URL = `${BASE_URL}/search?term=${termText}`
-
-  // const { data, error, status } = useQuery("search-joke", () => getJokes(URL))
-
-  // return {
-  //   jokes: data,
-  //   status,
-  //   error,
-  // }
 }

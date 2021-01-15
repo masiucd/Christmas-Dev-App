@@ -1,6 +1,7 @@
 import { matchPattern, randomListValue } from "@utils/helpers"
 import { rest } from "msw"
 import { jokes } from "./jokes-data"
+import nanoid from "nanoid"
 
 export const handlers = [
   rest.get("https://icanhazdadjoke.com", (req, res, ctx) => {
@@ -17,17 +18,12 @@ export const handlers = [
   // https://icanhazdadjoke.com/search?term
   rest.get("https://icanhazdadjoke.com/search", (req, res, ctx) => {
     const term = req.url.searchParams.get("term")
-    // console.log(req.url.searchParams)
 
-    const xs = matchPattern(jokes, term ? term : "")
-    // return res(ctx.status(200), ctx.json({  term }))
-    return res(ctx.status(200), ctx.json({ jokes: xs, term }))
-  }),
+    const xs = matchPattern(jokes, term ? term : "").map((joke) => ({
+      id: nanoid.nanoid(),
+      joke,
+    }))
 
-  rest.get("/search", (req, res, ctx) => {
-    const term = req.url.searchParams.get("term")
-
-    const xs = matchPattern(jokes, term ? term : "")
-    return res(ctx.status(200), ctx.json({ jokes: xs, term }))
+    return res(ctx.status(200), ctx.json({ jokes: xs, status: "success" }))
   }),
 ]

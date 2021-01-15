@@ -1,4 +1,3 @@
-import SearchTerm from "@components/joke/search-term"
 import axios from "axios"
 import { Joke } from "./types"
 
@@ -18,8 +17,8 @@ export const getJoke = async (url: string) => {
   return data
 }
 
-export const getJokes = async ({ queryKey }: { queryKey: string[] }) => {
-  const URL = `${BASE_URL}/search?term=${queryKey[queryKey.length - 1]}`
+export const getJokes = async (termText: string) => {
+  const URL = `${BASE_URL}/search?term=${termText}`
 
   const response = await axios.get(URL, {
     headers: {
@@ -29,3 +28,14 @@ export const getJokes = async ({ queryKey }: { queryKey: string[] }) => {
   const data: Partial<Joke[]> = await response.data.results
   return data
 }
+// export const getJokes = async ({ queryKey }: { queryKey: string[] }) => {
+//   const URL = `${BASE_URL}/search?term=${queryKey[queryKey.length - 1]}`
+
+//   const response = await axios.get(URL, {
+//     headers: {
+//       Accept: "application/json",
+//     },
+//   })
+//   const data: Partial<Joke[]> = await response.data.results
+//   return data
+// }

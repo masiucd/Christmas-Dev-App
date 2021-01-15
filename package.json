@@ -20,6 +20,7 @@
     "date-fns": "^2.16.1",
     "framer-motion": "^2.9.5",
     "gray-matter": "^4.0.2",
+    "nanoid": "^3.1.20",
     "next": "latest",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -33,6 +34,7 @@
     "@testing-library/dom": "^7.29.2",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
+    "@testing-library/react-hooks": "^5.0.0",
     "@testing-library/user-event": "^12.6.0",
     "@types/jest": "^26.0.16",
     "@types/node": "^13.9.5",
@@ -55,6 +57,7 @@
     "lint-staged": "^10.0.10",
     "msw": "^0.25.0",
     "prettier": "^2.0.2",
+    "react-test-renderer": "^17.0.1",
     "typescript": "^3.8.3"
   }
 }
