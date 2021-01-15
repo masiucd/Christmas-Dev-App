@@ -66,3 +66,9 @@ const ContactPage = () => {
 }
 
 export default ContactPage
+// aria-label="candy-image"
+//           id="candy-img"
+//           src="/candy.svg"
+//           alt="candy"
+//           width={500}
+//           height={500}
