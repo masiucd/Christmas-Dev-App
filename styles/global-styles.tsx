@@ -102,6 +102,7 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.65;
     background: var(--background);
     color: var(--textColor);
+
   }
 
   body[data-theme='light'] {
@@ -141,6 +142,8 @@ const GlobalStyles = createGlobalStyle`
   h6{
     font-family: var(--headingFont);
   }
+
+
 
 `
 

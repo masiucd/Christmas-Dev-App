@@ -1,11 +1,11 @@
-import { screen, waitFor, waitForElementToBeRemoved } from "@testing-library/react"
+import { screen, waitForElementToBeRemoved } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { QueryClient, QueryClientProvider } from "react-query"
 import { render } from "../../../test/testUtils"
 import { SearchJokeWrapper } from "../search-joke-wrapper"
-// import { renderHook } from "@testing-library/react-hooks"
 
 const queryClient = new QueryClient()
+
 describe("SearchJokeWrapper", () => {
   test("should render as expected ", async () => {
     render(
@@ -15,7 +15,7 @@ describe("SearchJokeWrapper", () => {
     )
 
     const searchTerm = "legs"
-    const searchButton = screen.getByRole("button", { name: /search/i })
+    let searchButton = screen.getByRole("button", { name: /search/i })
     expect(screen.queryByText(/Search for a joke/i)).not.toBeInTheDocument()
 
     userEvent.click(searchButton)
@@ -28,6 +28,7 @@ describe("SearchJokeWrapper", () => {
     expect(screen.getByTestId("loading-spinner")).toBeInTheDocument()
     await waitForElementToBeRemoved(() => screen.getByTestId("loading-spinner"))
     expect(screen.queryByTestId("loading-spinner")).not.toBeInTheDocument()
-    screen.debug()
+
+    searchButton = screen.getByRole("button", { name: /close/i })
   })
 })

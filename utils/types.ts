@@ -22,7 +22,7 @@ export type Status = "idle" | "error" | "loading" | "success"
 export interface Joke {
   id: string
   joke: string
-  status: 200
+  status?: 200
 }
 
 export interface NoJoke {
