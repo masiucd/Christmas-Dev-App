@@ -1,5 +1,5 @@
-import Head from "next/head"
 import React, { Fragment } from "react"
+import Head from "next/head"
 import Title from "@components/elements/title"
 import FadeWrapper from "@components/elements/fade-wrapper"
 import { useToggle } from "@hooks/toggle"
@@ -8,6 +8,7 @@ import { randomNumber } from "@utils/helpers"
 import Image from "next/image"
 import styled from "styled-components"
 import { Button } from "@components/elements/buttons"
+import { useThemeContext } from "@context/theme-context"
 
 const HeaderStyles = styled.a`
   color: var(--textColor);
@@ -29,6 +30,7 @@ const ButtonOptions = styled(Button)`
 
 const ContactPage = () => {
   const { state, toggle } = useToggle()
+  const { theme } = useThemeContext()
 
   return (
     <div>
@@ -51,7 +53,7 @@ const ContactPage = () => {
               <h1>{data.name}</h1>
 
               <Image
-                src={`/social/${data.name}-d.svg`}
+                src={`/social/${data.name}${theme === "dark" ? "-w" : "-d"}.svg`}
                 alt={`icon-${data.name}`}
                 width={40}
                 height={40}
@@ -66,9 +68,3 @@ const ContactPage = () => {
 }
 
 export default ContactPage
-// aria-label="candy-image"
-//           id="candy-img"
-//           src="/candy.svg"
-//           alt="candy"
-//           width={500}
-//           height={500}

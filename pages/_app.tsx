@@ -4,6 +4,7 @@ import { AppProps } from "next/app"
 import { QueryClient, QueryClientProvider } from "react-query"
 import { Hydrate } from "react-query/hydration"
 import { ReactQueryDevtools } from "react-query/devtools"
+import { ThemeProvider } from "@context/theme-context"
 
 // if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
 // require("../mocks/index")
@@ -18,9 +19,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <Hydrate state={pageProps.dehydratedState}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <ThemeProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
       </Hydrate>
     </QueryClientProvider>
   )

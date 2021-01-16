@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useThemeDispatch } from "@context/theme-context"
 
 interface SwitchTogglerProps {
   theme: "dark" | "light"
@@ -68,7 +69,7 @@ const StyledSwitchToggler = styled.label<StyledSwitchTogglerProps>`
 
 const SwitchToggler: React.FC<SwitchTogglerProps> = ({ theme, handleTheme }) => {
   const t = theme === "light" ? true : false
-
+  const dispatch = useThemeDispatch()
   return (
     <StyledSwitchToggler htmlFor="toggler" t={t}>
       <input
@@ -76,7 +77,10 @@ const SwitchToggler: React.FC<SwitchTogglerProps> = ({ theme, handleTheme }) => 
         name="toggler"
         id="toggler"
         checked={t}
-        onChange={handleTheme}
+        onChange={() => {
+          handleTheme()
+          dispatch({ type: "SET_THEME", payload: theme === "light" ? "dark" : "light" })
+        }}
         data-testid="theme-toggler"
       />
       <span className={`action-area ${theme === "light" ? "on" : "off"}`} />
