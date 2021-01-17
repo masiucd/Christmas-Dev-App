@@ -3,7 +3,6 @@ import * as React from "react"
 
 interface State {
   quizData: Quiz[] | []
-  status: Status
   score: number
   isGameDone: boolean
 }
@@ -22,15 +21,15 @@ type Dispatch = (action: Action) => void
 const QuizStateContext = React.createContext<State | undefined>(undefined)
 const QuizDispatchContext = React.createContext<Dispatch | undefined>(undefined)
 
-const quizReducer: React.Reducer<State, Action> = (state: State, action: Action) => {
+const reducer: React.Reducer<State, Action> = (state: State, action: Action) => {
   switch (action.type) {
     case "javascript":
     case "css":
-    case "backend":
-    case "go":
-    case "node":
-    case "rust":
     case "servers":
+    case "backend":
+    case "node":
+    case "go":
+    case "rust":
       return {
         ...state,
         quizData: action.payload,
@@ -73,9 +72,8 @@ const quizReducer: React.Reducer<State, Action> = (state: State, action: Action)
         ...state,
         isGameDone: true,
       }
-    default: {
-      throw new Error("Could not resolve action.type within quizReducer")
-    }
+    default:
+      return state
   }
 }
 
@@ -84,9 +82,8 @@ interface Props {
 }
 
 export function QuizProvider({ children, ...options }: Props) {
-  const [state, dispatch] = React.useReducer(quizReducer, {
+  const [state, dispatch] = React.useReducer(reducer, {
     quizData: [],
-    status: "init",
     score: 0,
     isGameDone: false,
   })
