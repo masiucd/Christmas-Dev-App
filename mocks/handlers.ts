@@ -6,12 +6,14 @@ import nanoid from "nanoid"
 const BASE_URL = "https://icanhazdadjoke.com"
 export const handlers = [
   rest.get(BASE_URL, (req, res, ctx) => {
+    const { method } = req
     return res(
       ctx.status(200),
       ctx.json({
         id: "id",
         joke: randomListValue(jokesData),
         status: 200,
+        method,
       })
     )
   }),
