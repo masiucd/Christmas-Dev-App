@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react"
-import QuizPage from "../quiz"
+import QuizPage from "../pages/quiz"
 
 describe("<QuizPage/>", () => {
   test("should render as expected ", () => {

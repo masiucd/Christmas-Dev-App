@@ -1,8 +1,8 @@
 import { screen, waitForElementToBeRemoved } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { QueryClient, QueryClientProvider } from "react-query"
-import { render } from "../../../test/testUtils"
-import { SearchJokeWrapper } from "../search-joke-wrapper"
+import { render } from "../test/testUtils"
+import { SearchJokeWrapper } from "../components/joke/search-joke-wrapper"
 
 const queryClient = new QueryClient()
 

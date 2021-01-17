@@ -9,7 +9,10 @@ module.exports = {
   transform: {
     "^.+\\.(ts|tsx|js)$": "babel-jest",
   },
+  testEnvironment: "node",
   watchPlugins: ["jest-watch-typeahead/filename", "jest-watch-typeahead/testname"],
+  // A list of paths to modules that run some code to configure or set up the testing framework before each test
+  setupFilesAfterEnv: ["./jest.setup.js"],
   moduleNameMapper: {
     "\\.(css|less|sass|scss)$": "identity-obj-proxy",
     "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/test/__mocks__/fileMock.js",
@@ -18,14 +21,6 @@ module.exports = {
     "@hooks/(.*)": "<rootDir>/hooks/$1",
     "@context/(.*)": "<rootDir>/context/$1",
     "@utils/(.*)": "<rootDir>/utils/$1",
-    "@test-utils/(.*)": "<rootDir>/test-utils/$1",
+    "@test/(.*)": "<rootDir>/test/$1",
   },
-  // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  setupFilesAfterEnv: ["./jest.setup.js"],
 }
-
-// "@components/*": ["components/*"],
-//       "@hooks/*": ["hooks/*"],
-//       "@styles/*": ["styles/*"],
-//       "@utils/*": ["utils/*"],
-//       "@test-utils": ["test-utils/*"]

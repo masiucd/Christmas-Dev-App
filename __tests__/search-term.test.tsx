@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react"
-import SearchTerm from "../search-term"
+import SearchTerm from "../components/joke/search-term"
 
 beforeEach(() => {
   window.localStorage.setItem("theme", "dark")

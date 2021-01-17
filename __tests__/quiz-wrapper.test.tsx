@@ -1,6 +1,6 @@
 import { fireEvent, screen } from "@testing-library/react"
 import { render } from "../../../test-utils/render"
-import QuizWrapper from "../quiz-elements/quiz-wrapper"
+import QuizWrapper from "../components/quiz/quiz-elements/quiz-wrapper"
 
 describe("<QuizWrapper/>", () => {
   test("should render, new quiz should come after choosing a option ", async () => {

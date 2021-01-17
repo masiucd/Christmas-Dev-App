@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { ToggleButton } from "../toggle-btn"
+import { ToggleButton } from "../components/joke/toggle-btn"
 
 describe("ToggleButton", () => {
   test("ToggleButton takes in prop and fire-event ", () => {

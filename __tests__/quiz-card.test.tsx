@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react"
 import { render } from "../../../test-utils/render"
-import QuizCard from "../quiz-elements/quiz-card"
+import QuizCard from "../components/quiz/quiz-elements/quiz-card"
 
 describe("<QuizCard/>", () => {
   test("should render at least the styled-quiz-card-wrapper", () => {

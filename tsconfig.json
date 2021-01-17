@@ -1,14 +1,12 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -35,15 +33,20 @@
       "@test-utils/*": [
         "test-utils/*"
       ]
-    }
+    },
   },
   "exclude": [
     "node_modules",
     ".next",
-    "out"
+    "out",
+    "**/*.test.tsx",
+    "**/*.test.ts",
+    "**/*.spec.tsx",
+    "*.test.tsx",
   ],
   "include": [
     "next-env.d.ts",
+    "node_modules/@types",
     "**/*.ts",
     "**/*.tsx",
     "**/*.js"

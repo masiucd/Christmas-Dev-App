@@ -6,12 +6,6 @@ import { Hydrate } from "react-query/hydration"
 import { ReactQueryDevtools } from "react-query/devtools"
 import { ThemeProvider } from "@context/theme-context"
 
-// if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
-// require("../mocks/index")
-// const { init } = require("../mocks")
-// init()
-// }
-
 const queryClient = new QueryClient()
 
 export default function MyApp({ Component, pageProps }: AppProps) {

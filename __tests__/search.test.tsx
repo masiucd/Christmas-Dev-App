@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react"
-import Search from "../search"
+import Search from "../components/joke/search"
 
 describe("Search", () => {
   test("list renders correctly after loading  ", () => {

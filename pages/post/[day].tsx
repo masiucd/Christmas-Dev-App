@@ -7,28 +7,44 @@ import Head from "next/head"
 import markdownToHtml from "@utils/markDownToHtml"
 import BlogPost from "@components/blog-post/blog-post"
 import BlogPostFooter from "@components/blog-post/blog-post-footer"
+
+interface FrontMatter {
+  title: string
+  description: string
+  spoiler: string
+  date: string
+}
 interface DayPageProps {
   day: string
   postsList: string[]
-  frontMatter: {
-    title: string
-    description: string
-    spoiler: string
-    date: string
-  }
+  frontMatter: FrontMatter
   rawHtml: string
 }
 
 const DayPage = ({ frontMatter, rawHtml, postsList, day }: DayPageProps) => {
-  const currentPostIndex = postsList.indexOf(day)
-  const lastPostIndex = postsList.length - 1
+  const currentPostIndex = day ? postsList.indexOf(day) : 0
+  const lastPostIndex = postsList ? postsList.length - 1 : 0
+  // * * without this line I can't build it for production
+  // * * need to have a fallBack
+  let fakeFrontMatter: FrontMatter
+  if (!frontMatter) {
+    fakeFrontMatter = {
+      title: "",
+      description: "",
+      spoiler: "",
+      date: "2020-02-04T22:40:32.169Z",
+    }
+  }
 
   return (
     <>
       <Head>
-        <title>{frontMatter.title}</title>
+        <title>{frontMatter ? frontMatter.title : fakeFrontMatter.title}</title>
       </Head>
-      <BlogPost frontMatter={frontMatter} rawHtml={rawHtml} />
+      <BlogPost
+        frontMatter={frontMatter ? frontMatter : fakeFrontMatter}
+        rawHtml={rawHtml}
+      />
       <BlogPostFooter
         postsList={postsList}
         currentPostIndex={currentPostIndex}

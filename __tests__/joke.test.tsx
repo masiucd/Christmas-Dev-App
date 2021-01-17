@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { Joke as J } from "@utils/types"
 
-import { Joke } from "../joke"
+import { Joke } from "../components/joke/joke"
 
 describe("<Joke/>", () => {
   test("should render as expected", async () => {

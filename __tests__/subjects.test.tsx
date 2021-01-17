@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react"
-import { Subjects } from "../subjects"
+import { Subjects } from "../components/quiz/subjects"
 
 describe("<Subjects/>", () => {
   test("should render as expected with the correct structure ", () => {

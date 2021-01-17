@@ -32,15 +32,18 @@ const Content = styled.div`
   }
 `
 
-const BlogPost: React.FC<BlogPostProps> = ({ frontMatter, rawHtml }) => {
-  const d = handleBlogPostDate(frontMatter.date)
+const BlogPost: React.FC<BlogPostProps> = ({
+  frontMatter: { date = "2021", title = "t", spoiler = "s" },
+  rawHtml,
+}) => {
+  const d = handleBlogPostDate(date)
 
   return (
     <StyledBlogPost>
       <Title
-        className={`blog-post blog-post-${frontMatter.title}`}
-        mainTitle={frontMatter.title}
-        subTitle={`${frontMatter.spoiler} written ${d}`}
+        className={`blog-post blog-post-${title}`}
+        mainTitle={title}
+        subTitle={`${spoiler} written ${d}`}
       />
       <Content dangerouslySetInnerHTML={{ __html: rawHtml }} />
     </StyledBlogPost>
