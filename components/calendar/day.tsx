@@ -92,6 +92,7 @@ const Day: React.FC<DayProps> = ({ dayIndex, dayDate }) => {
       <motion.div
         className="card"
         whileHover={{ rotateY: 180 }}
+        whileTap={{ rotateY: 180 }}
         transition={{ duration: 0.25 }}
       >
         <div className="face front">

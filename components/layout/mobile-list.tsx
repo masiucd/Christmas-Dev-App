@@ -49,16 +49,8 @@ export default styled(MobileList)`
   left: 0;
   padding: 2rem 0;
   width: 100%;
-  z-index: 100;
+  z-index: 200;
   @media ${above.tabletL} {
     display: none;
-  }
-  a {
-    display: inline-block;
-    font-size: 1rem;
-    padding: 0.5rem 0;
-    &:hover {
-      margin-left: 1rem;
-    }
   }
 `

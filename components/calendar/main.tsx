@@ -45,13 +45,13 @@ const Grid = styled.section`
   }
   @media ${below.mobileL} {
     grid-template-columns: repeat(2, 1fr);
-    .day-1,
-    .day-15,
-    .day-19,
-    .day-5 {
-      grid-column: none;
-      grid-row: none;
-    }
+  }
+  @media ${below.mobileXL} {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+  @media ${below.mobileL} {
+    display: flex;
+    flex-flow: column wrap;
   }
 `
 

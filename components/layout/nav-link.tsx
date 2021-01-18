@@ -1,5 +1,6 @@
 import Link from "next/link"
 import React from "react"
+
 import styled from "styled-components"
 
 interface NavLinkProp {
@@ -8,25 +9,27 @@ interface NavLinkProp {
 }
 
 const LinkItem = styled.li`
+  padding: 0.5rem 0;
   a {
-    color: var(--textColor);
-    display: block;
+    color: var(--background);
+    display: inline-block;
     font-size: 0.85em;
     margin-left: 0.2em;
     padding: 0.2em;
     position: relative;
     transition: var(--main-trans);
     &:after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
       background: var(--lineColor);
-      width: 0;
+      bottom: 0;
+      content: "";
       height: 1px;
+      left: 0;
+      position: absolute;
       transition: var(--main-trans);
+      width: 0;
     }
     &:hover {
+      margin-left: 1rem;
       transform: scale(1.025);
       &:after {
         width: 100%;
