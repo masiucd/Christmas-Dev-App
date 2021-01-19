@@ -1,3 +1,4 @@
+import { below } from "@styles/media-query"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import styled from "styled-components"
@@ -23,6 +24,9 @@ const StyledDay = styled(motion.div)<StyledDayProps>`
   outline: none;
   padding: 2.45em 0.5em;
   transition: var(--main-trans);
+  @media ${below.mobileL} {
+    margin: 0.5rem 0;
+  }
 
   .front {
     background-color: ${({ currentDay }) =>

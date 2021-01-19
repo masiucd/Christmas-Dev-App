@@ -36,7 +36,7 @@ const MobileList: React.FC<MobileListProps> = ({ className, on }) => {
     >
       <ul>
         {navListData.map((item) => (
-          <NavLink key={item.path} path={item.path} text={item.name} />
+          <NavLink key={item.path} path={item.path} text={item.name} on={on} />
         ))}
       </ul>
     </motion.section>

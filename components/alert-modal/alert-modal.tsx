@@ -15,9 +15,9 @@ const StyledAlert = styled(motion.section)`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  height: 100%;
   justify-content: center;
   left: 0;
+  min-height: 100vh;
   position: absolute;
   top: 0;
   width: 100%;

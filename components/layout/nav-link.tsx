@@ -6,12 +6,17 @@ import styled from "styled-components"
 interface NavLinkProp {
   path: string
   text: string
+  on: boolean
 }
 
-const LinkItem = styled.li`
+interface LinkItemProps {
+  on: number
+}
+
+const LinkItem = styled.li<LinkItemProps>`
   padding: 0.5rem 0;
   a {
-    color: var(--background);
+    color: ${({ on }) => (on ? "var(--background)" : "var(--textColor)")};
     display: inline-block;
     font-size: 0.85em;
     margin-left: 0.2em;
@@ -38,12 +43,13 @@ const LinkItem = styled.li`
   }
 `
 
-const NavLink: React.FC<NavLinkProp> = ({ path, text }) => {
+const NavLink: React.FC<NavLinkProp> = ({ path, text, on }) => {
   const capFirstLetter = (link: string) => {
     return link[0].toUpperCase() + link.slice(1)
   }
+
   return (
-    <LinkItem>
+    <LinkItem on={on ? 1 : 0}>
       <Link href={path}>
         <a>{capFirstLetter(text)}</a>
       </Link>
