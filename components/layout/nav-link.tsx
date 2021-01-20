@@ -6,11 +6,11 @@ import styled from "styled-components"
 interface NavLinkProp {
   path: string
   text: string
-  on: boolean
+  on?: boolean
 }
 
 interface LinkItemProps {
-  on: number
+  on?: number
 }
 
 const LinkItem = styled.li<LinkItemProps>`
