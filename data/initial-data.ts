@@ -14,6 +14,10 @@ export const navListData = [
     path: "/jokes",
   },
   {
+    name: "tic-tac-toe",
+    path: "/tic-tac-toe",
+  },
+  {
     name: "contact",
     path: "/contact",
   },

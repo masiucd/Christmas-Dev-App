@@ -4,17 +4,16 @@ import styled from "styled-components"
 import { above } from "@styles/media-query"
 import { navListData } from "../../data/initial-data"
 import NavLink from "./nav-link"
-import { useScroll } from "@hooks/scroll"
+import { useScrollY } from "@hooks/scroll-y"
+import { changePosition } from "@utils/helpers"
 
 interface MobileListProps {
   className: string
   on: boolean
 }
 
-const changePosition = (y: number, n = 70): boolean => y >= n
-
 const MobileList: React.FC<MobileListProps> = ({ className, on }) => {
-  const { scrollY } = useScroll()
+  const { y } = useScrollY()
 
   const variants = {
     open: { opacity: 1, y: 0 },
@@ -30,8 +29,8 @@ const MobileList: React.FC<MobileListProps> = ({ className, on }) => {
       transition={{ damping: 7, delay: 0.3 }}
       exit="closed"
       style={{
-        position: changePosition(scrollY, 76) ? "fixed" : "absolute",
-        top: changePosition(scrollY, 76) ? 0 : "75px",
+        position: changePosition(y, 74) ? "fixed" : "absolute",
+        top: changePosition(y, 74) ? 0 : "75px",
       }}
     >
       <ul>

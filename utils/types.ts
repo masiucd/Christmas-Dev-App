@@ -18,6 +18,7 @@ export type SubjectType =
   | "go"
 
 export type Status = "idle" | "error" | "loading" | "success"
+export type ScrollDir = "idle" | "down" | "up"
 
 export interface Joke {
   id: string

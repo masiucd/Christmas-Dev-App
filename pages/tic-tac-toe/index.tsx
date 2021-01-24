@@ -1,5 +1,7 @@
 import React from "react"
 import Title from "@components/elements/title"
+
+
 const TicTacToe = () => {
   return (
     <div>

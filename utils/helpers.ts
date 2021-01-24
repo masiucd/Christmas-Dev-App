@@ -23,4 +23,12 @@ const matchPattern = (xs: string[], term: string) => {
 
 const randomNumber = (n = 10): number => Math.floor(Math.random() * n)
 
-export { calculateDaysUntilXmas, randomListValue, matchPattern, randomNumber }
+const changePosition = (y: number, n = 70): boolean => y >= n
+
+export {
+  calculateDaysUntilXmas,
+  randomListValue,
+  matchPattern,
+  randomNumber,
+  changePosition,
+}
