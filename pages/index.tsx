@@ -12,7 +12,8 @@ export const Home = (): JSX.Element => {
   return (
     <>
       <Head>
-        <title>santa&quot;s calender</title>
+        <title>all dev&quot;s x-mas app</title>
+        <link rel="icon" href="/favicon2.ico" />
       </Head>
       <Title
         className="home-page-title"
