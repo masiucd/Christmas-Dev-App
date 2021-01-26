@@ -10,7 +10,11 @@ const TicTacToe = () => {
         <title>tic-tac-toe</title>
         <link rel="icon" href="/favicon2.ico" />
       </Head>
-      <Title className="tic-tac-toe-title" mainTitle="TicTac" subTitle="TicTac" />
+      <Title
+        className="tic-tac-toe-title"
+        mainTitle="let's play!"
+        subTitle="Tic Tac Toe"
+      />
       <Game />
     </>
   )

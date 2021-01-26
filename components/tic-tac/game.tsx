@@ -1,6 +1,12 @@
+import { checkWinner } from "@utils/helpers"
+import { GameState } from "@utils/types"
+import { AnimatePresence } from "framer-motion"
 import React from "react"
+import { useEffect } from "react"
 import { useState } from "react"
 import styled from "styled-components"
+import { Square } from "./square"
+import WinnerMessage from "./winner-message"
 
 const GameWrapper = styled.section`
   display: grid;
@@ -11,36 +17,17 @@ const GameWrapper = styled.section`
   max-width: 760px;
 `
 
-const SquareBox = styled.div`
-  border: 2px solid var(--textColor);
-  box-shadow: var(--shadowLg);
-  cursor: pointer;
-  transition: var(--main-trans);
-  width: 100%;
-  &:hover {
-    box-shadow: var(--shadow2Xl);
-  }
-`
-
-interface SquareProps {
-  xOreO: string
-  index: number
-  handleSquare: (square: number) => void
-}
-const Square = ({ xOreO, handleSquare, index }: SquareProps) => {
-  return <SquareBox onClick={() => handleSquare(index)}>{xOreO}</SquareBox>
-}
-
 export const Game = () => {
-  const [squares, setSquares] = useState<string[]>(Array.from(Array(9).fill("")))
+  const [squares, setSquares] = useState<GameState[]>(Array.from(Array(9).fill("")))
   const [isX, setIsX] = useState(false)
+  const [winner, setWinner] = useState<GameState>("")
 
   const toggleIsX = () => {
     setIsX((p) => !p)
   }
 
   const handleSquare = (square: number) => {
-    if (squares[square]) {
+    if (checkWinner(squares) || squares[square]) {
       return
     }
     const copy = [...squares]
@@ -49,17 +36,36 @@ export const Game = () => {
     toggleIsX()
   }
 
+  const newGame = () => {
+    setSquares(Array.from(Array(9).fill("")))
+    setIsX(false)
+    setWinner("")
+  }
+
+  useEffect(() => {
+    if (checkWinner(squares)) {
+      const winningSymbol = checkWinner(squares)
+      setWinner(winningSymbol)
+    }
+  }, [squares])
+
   return (
-    <GameWrapper>
-      <Square index={0} xOreO={squares[0]} handleSquare={handleSquare} />
-      <Square index={1} xOreO={squares[1]} handleSquare={handleSquare} />
-      <Square index={2} xOreO={squares[2]} handleSquare={handleSquare} />
-      <Square index={3} xOreO={squares[3]} handleSquare={handleSquare} />
-      <Square index={4} xOreO={squares[4]} handleSquare={handleSquare} />
-      <Square index={5} xOreO={squares[5]} handleSquare={handleSquare} />
-      <Square index={6} xOreO={squares[6]} handleSquare={handleSquare} />
-      <Square index={7} xOreO={squares[7]} handleSquare={handleSquare} />
-      <Square index={8} xOreO={squares[8]} handleSquare={handleSquare} />
-    </GameWrapper>
+    <>
+      <AnimatePresence>
+        {Boolean(winner) && <WinnerMessage winner={winner} newGame={newGame} />}
+      </AnimatePresence>
+
+      <GameWrapper>
+        <Square index={0} xOreO={squares[0]} handleSquare={handleSquare} />
+        <Square index={1} xOreO={squares[1]} handleSquare={handleSquare} />
+        <Square index={2} xOreO={squares[2]} handleSquare={handleSquare} />
+        <Square index={3} xOreO={squares[3]} handleSquare={handleSquare} />
+        <Square index={4} xOreO={squares[4]} handleSquare={handleSquare} />
+        <Square index={5} xOreO={squares[5]} handleSquare={handleSquare} />
+        <Square index={6} xOreO={squares[6]} handleSquare={handleSquare} />
+        <Square index={7} xOreO={squares[7]} handleSquare={handleSquare} />
+        <Square index={8} xOreO={squares[8]} handleSquare={handleSquare} />
+      </GameWrapper>
+    </>
   )
 }

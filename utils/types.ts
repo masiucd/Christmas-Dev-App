@@ -30,3 +30,5 @@ export interface NoJoke {
   msg: string
   status: number
 }
+
+export type GameState = "" | "X" | "O"
