@@ -16,7 +16,24 @@ import React, { useEffect } from "react"
 import QuizCard from "./quiz-card"
 import { AnimatePresence } from "framer-motion"
 import AlertModal from "@components/alert-modal/alert-modal"
+import Fade from "@components/animated/fade"
 
+const MessageContent = styled.div`
+  align-items: center;
+  border: 2px solid #000;
+  color: var(--white);
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  padding: 2rem;
+  h3 {
+    border-bottom: 2px solid var(--white);
+    letter-spacing: 0.07rem;
+  }
+  span {
+    color: var(--green);
+  }
+`
 interface QuizWrapperProps {
   quizSubject: SubjectType
 }
@@ -75,6 +92,16 @@ export default function QuizWrapper({ quizSubject }: QuizWrapperProps) {
       </AnimatePresence>
       <StyledQuizWrapper>
         <QuizCard />
+
+        <Fade exitOptions={{ x: "100%" }}>
+          <MessageContent>
+            <h3>{quizSubject} quiz finished </h3>
+            <p>
+              you scored <span>{score}</span> out of <span>{quizData.length}</span>{" "}
+              possible{" "}
+            </p>
+          </MessageContent>
+        </Fade>
       </StyledQuizWrapper>
     </>
   )
