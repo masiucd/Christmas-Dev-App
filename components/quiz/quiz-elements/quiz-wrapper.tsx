@@ -15,25 +15,9 @@ import {
 import React, { useEffect } from "react"
 import QuizCard from "./quiz-card"
 import { AnimatePresence } from "framer-motion"
-import AlertModal from "@components/alert-modal/alert-modal"
-import Fade from "@components/animated/fade"
 
-const MessageContent = styled.div`
-  align-items: center;
-  border: 2px solid #000;
-  color: var(--white);
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  padding: 2rem;
-  h3 {
-    border-bottom: 2px solid var(--white);
-    letter-spacing: 0.07rem;
-  }
-  span {
-    color: var(--green);
-  }
-`
+import { GameMessage } from "./game-message"
+
 interface QuizWrapperProps {
   quizSubject: SubjectType
 }
@@ -66,7 +50,7 @@ function handleSubjectType(subject: SubjectType) {
 
 export default function QuizWrapper({ quizSubject }: QuizWrapperProps) {
   const dispatch = useQuizDispatch()
-  const { score, isGameDone, quizData } = useQuizState()
+  const { score, isGameDone } = useQuizState()
 
   useEffect(() => {
     let questionsXs
@@ -81,27 +65,10 @@ export default function QuizWrapper({ quizSubject }: QuizWrapperProps) {
   return (
     <>
       <AnimatePresence>
-        {isGameDone && (
-          <AlertModal
-            key="modal"
-            title={`${quizSubject} quiz  finished`}
-            message={`you scored ${score} out of ${quizData.length} possible `}
-            cta
-          />
-        )}
+        {isGameDone && <GameMessage quizSubject={quizSubject} />}
       </AnimatePresence>
       <StyledQuizWrapper>
         <QuizCard />
-
-        <Fade exitOptions={{ x: "100%" }}>
-          <MessageContent>
-            <h3>{quizSubject} quiz finished </h3>
-            <p>
-              you scored <span>{score}</span> out of <span>{quizData.length}</span>{" "}
-              possible{" "}
-            </p>
-          </MessageContent>
-        </Fade>
       </StyledQuizWrapper>
     </>
   )
