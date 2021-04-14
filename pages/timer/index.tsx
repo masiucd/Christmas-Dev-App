@@ -20,8 +20,8 @@ const TimerPage = () => {
       </Head>
       <Title
         className="timer-page-title"
-        mainTitle="Dad Jokes"
-        subTitle="Get some laugh's by clicking on the candy"
+        mainTitle="Timer with x-state"
+        subTitle="X-state is great!"
       />
       <Wrapper>
         <Timer />

@@ -25,18 +25,35 @@ const timerMachine = createMachine<TimeContext, TimeEvent>(
       idle: {
         entry: "resetTimer",
         on: {
-          TOGGLE: "running",
+          TOGGLE: {
+            target: "running",
+          },
         },
       },
+      // state
       running: {
         on: {
-          TOGGLE: "paused",
+          // event
+          TICK: {
+            actions: ["tick"],
+          },
+          // event
+          TOGGLE: {
+            target: "paused",
+          },
+          ADD_MINUTE: {
+            actions: ["addMinute"],
+          },
         },
       },
       paused: {
         on: {
-          TOGGLE: "running",
-          RESET: "idle",
+          TOGGLE: {
+            target: "running",
+          },
+          RESET: {
+            target: "idle",
+          },
         },
       },
     },
@@ -50,10 +67,10 @@ const timerMachine = createMachine<TimeContext, TimeEvent>(
       }),
 
       addMinute: assign({
-        duration: (ctx) => ctx.duration + 60,
+        duration: (ctx: TimeContext) => ctx.duration + 60,
       }),
       tick: assign({
-        elapsed: (ctx) => ctx.elapsed + ctx.interval,
+        elapsed: (ctx: TimeContext) => ctx.elapsed + ctx.interval,
       }),
     },
   }
